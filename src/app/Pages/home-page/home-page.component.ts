@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 export class HomePageComponent implements OnInit {
   constructor(private router: Router) {}
 
-  goToLoginPage(){
-        this.router.navigate(['/login']);  // define your component where you want to go
+  goToDashboard(){
+        this.router.navigate(['/dashboard']);  // define your component where you want to go
     }
   
   ngOnInit() {
