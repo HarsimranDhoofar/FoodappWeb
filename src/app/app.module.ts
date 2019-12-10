@@ -3,22 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { HomePageComponent } from './home-page/home-page.component';
+import { HomePageComponent } from './Pages/home-page/home-page.component';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { environment } from '../environments/environment';
-import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent,
     HomePageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    CoreModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
