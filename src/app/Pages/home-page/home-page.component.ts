@@ -18,9 +18,14 @@ export class HomePageComponent implements OnInit {
     }
   
   ngOnInit() {
-    this.auth.eventAuthError$.subscribe
+    this.auth.eventAuthError$.subscribe( data => {
+      this.authError = data;
+    })
   }
  createUser(frm){
       this.auth.createUser(frm.value);
+ }
+ logout(){
+   this.auth.logout();
  }
 }

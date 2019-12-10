@@ -16,6 +16,9 @@ export class AuthService {
     private db:AngularFirestore,
     private router: Router) { }
 
+    getUserState(){
+     return this.afAuth.authState;
+    }
     createUser(user){
       this.afAuth.auth.createUserWithEmailAndPassword( user.email, user.password)
       .then( userCredential => {
@@ -34,11 +37,15 @@ export class AuthService {
       })
     }
     insertUserData( userCredential: firebase.auth.UserCredential){
-      return this.db.doc('Users/${userCredential.user.uid').set({
+      return this.db.doc(`Users/${userCredential.user.uid}`).set({
         email:this.newUser.email,
         firstName: this.newUser.firstName,
         lastname: this.newUser.lastName,
         role: 'network user'
       })
     }
+    logout(){
+      return this.afAuth.auth.signOut();
+    }
+    
 }

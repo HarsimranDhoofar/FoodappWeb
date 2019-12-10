@@ -99,20 +99,28 @@
                   <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
         
                     <!--Body-->
-                    <div class="modal-body mb-1">
-                      <div class="md-form">
-                        <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
-                        <input type="email" id="modalLRInput10" class="form-control validate">
+                    <div class="modal-body">
+                        <form #loginForm="ngForm" (ngSubmit)="login(LoginForm)">
+                          <div class ="row">
+                            <div class = "col-md-12 mb-2">
+                              <label for="email">Email</label>
+                              <input ngModel #email="ngModel" name="email" type="email" class="form-control" >
+                            </div>
+                          </div>
+                           <div>
+                             <div class = "row">
+                               <div class= "col-md-12 mb-2">
+                                  <label for="password">Password</label>
+                                  <input ngModel #password="ngModel" name="password" type="password" class="form-control" >   
+                               </div>
+                             </div>
+                           </div> 
+                        <div class="text-center form-sm mt-2">
+                          <button class="btn btn-info" type="submit">LogIn</button>
+                        </div>
+                      </form>
                       </div>
-                      &nbsp;
-                      <div class="md-form">
-                        <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
-                        <input type="password" id="modalLRInput11" class="form-control validate">
-                      </div>
-                      <div class="text-center mt-2">
-                        <button class="btn btn-primary btn-lg" (click)="goToDashboard()" data-dismiss="modal">Log in </button>
-                      </div>
-                    </div>
+                      
                     <!--Footer-->
                     <div class="modal-footer">
                       <div class="options text-center text-md-right mt-1">
@@ -162,7 +170,7 @@
                            </div>
                          </div> 
                       <div class="text-center form-sm mt-2">
-                        <button class="btn btn-info" type="submit">Sign up</button>
+                        <button class="btn btn-info" type="submit">Register</button>
                       </div>
                     </form>
                     </div>
