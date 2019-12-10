@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,14 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  constructor(private router: Router) {}
+
+  authError: any;
+  constructor(private router: Router,
+              private auth: AuthService) {}
 
   goToDashboard(){
         this.router.navigate(['/dashboard']);  // define your component where you want to go
     }
   
   ngOnInit() {
-    
+    this.auth.eventAuthError$.subscribe
   }
-
+ createUser(frm){
+      this.auth.createUser(frm.value);
+ }
 }
