@@ -9,13 +9,15 @@ import { AuthService } from '../auth/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
+  user: firebase.User
   constructor(private router: Router,
     private auth: AuthService) { }
 
   ngOnInit() {
-    this.auth.getUserState().subscribe( user =>{
+    this.auth.getUserState()
+     .subscribe( user =>{
       this.user = user;
-    })
+    });
   }
   logout(){
     this.auth.logout();

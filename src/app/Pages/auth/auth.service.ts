@@ -19,6 +19,18 @@ export class AuthService {
     getUserState(){
      return this.afAuth.authState;
     }
+
+    login(emailLogin : string, passwordLogin: string){
+      this.afAuth.auth.signInWithEmailAndPassword(emailLogin, passwordLogin)
+       .catch(error =>{
+        this.eventAuthError.next(error);
+       })
+       .then(userCredential =>{
+         if(userCredential){
+           this.router.navigate(['/dashboard'])
+         }
+       })
+    }
     createUser(user){
       this.afAuth.auth.createUserWithEmailAndPassword( user.email, user.password)
       .then( userCredential => {

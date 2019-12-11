@@ -101,22 +101,25 @@
                     <!--Body-->
                     <div class="modal-body">
                         <form #loginForm="ngForm" (ngSubmit)="login(LoginForm)">
+                          <div class ="row" *ngIf="authError">
+                            <div class="col-12 alert alert-danger">{{authError?.message}}</div>
+                          </div>
                           <div class ="row">
                             <div class = "col-md-12 mb-2">
-                              <label for="email">Email</label>
-                              <input ngModel #email="ngModel" name="email" type="email" class="form-control" >
+                              <label for="emailLogin">Email</label>
+                              <input ngModel #emailLogin="ngModel" name="emailLogin" type="email" class="form-control" >
                             </div>
                           </div>
                            <div>
                              <div class = "row">
                                <div class= "col-md-12 mb-2">
-                                  <label for="password">Password</label>
-                                  <input ngModel #password="ngModel" name="password" type="password" class="form-control" >   
+                                  <label for="passwordLogin">Password</label>
+                                  <input ngModel #passwordLogin="ngModel" name="passwordLogin" type="password" class="form-control" >   
                                </div>
                              </div>
                            </div> 
                         <div class="text-center form-sm mt-2">
-                          <button class="btn btn-info" type="submit">LogIn</button>
+                          <button class="btn btn-info" name ="logInBtn" type="submit">LogIn</button>
                         </div>
                       </form>
                       </div>
@@ -170,7 +173,7 @@
                            </div>
                          </div> 
                       <div class="text-center form-sm mt-2">
-                        <button class="btn btn-info" type="submit">Register</button>
+                        <button class="btn btn-info" name ="registerBtn" type="submit">Register</button>
                       </div>
                     </form>
                     </div>
@@ -193,7 +196,4 @@
         </div>
         <!--Modal: Login / Register Form-->
         
-        <div class="text-center">
-          <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">Launch
-            Modal LogIn/Register</a>
-        </div>
+  
