@@ -27,8 +27,8 @@ export class HomePageComponent implements OnInit {
  createUser(frm){
       this.auth.createUser(frm.value);
  }
- login(frm){
-   this.auth.login(frm.value.emailLogin, frm.value.passwordLogin);
+ login(frm1){
+   this.auth.login(frm1.value.email, frm1.value.password);
  }
 
 }
