@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 
@@ -8,7 +8,7 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
+  @Output() closeModalEvent = new EventEmitter<boolean>();
   authError: any;
   constructor(private router: Router,
               private auth: AuthService) {}
@@ -25,9 +25,11 @@ export class HomePageComponent implements OnInit {
     })
   }
  createUser(frm){
+      this.closeModalEvent.emit(false);
       this.auth.createUser(frm.value);
  }
  login(frm1){
+  this.closeModalEvent.emit(false);
    this.auth.login(frm1.value.email, frm1.value.password);
  }
 
