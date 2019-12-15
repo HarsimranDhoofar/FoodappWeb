@@ -20,8 +20,8 @@ export class AuthService {
      return this.afAuth.authState;
     }
 
-    login(emailLogin : string, passwordLogin: string){
-      this.afAuth.auth.signInWithEmailAndPassword(emailLogin, passwordLogin)
+    login(email: string, password: string){
+      this.afAuth.auth.signInWithEmailAndPassword(email, password)
        .catch(error =>{
         this.eventAuthError.next(error);
        })

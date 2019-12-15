@@ -9,7 +9,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { environment } from '../environments/environment';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EditProfileComponent } from './Pages/edit-profile/edit-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
