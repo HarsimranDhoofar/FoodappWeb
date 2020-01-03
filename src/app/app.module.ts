@@ -13,6 +13,8 @@ import { EditProfileComponent } from './Pages/dashboard/edit-profile/edit-profil
 import { OverviewPageComponent } from './Pages/dashboard/overview-page/overview-page.component';
 import { UpdateMenuComponent } from './Pages/dashboard/update-menu/update-menu.component';
 import { CustomerListComponent } from './Pages/dashboard/customer-list/customer-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,9 @@ import { CustomerListComponent } from './Pages/dashboard/customer-list/customer-
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

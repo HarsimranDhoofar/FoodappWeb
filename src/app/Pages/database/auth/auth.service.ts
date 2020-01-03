@@ -3,18 +3,21 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import { $ } from 'protractor';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+  uid : any;
   private eventAuthError = new BehaviorSubject<string>("");
   eventAuthError$ = this.eventAuthError.asObservable();
   newUser: any;
   constructor(
     private afAuth: AngularFireAuth,
     private db:AngularFirestore,
-    private router: Router) { }
+    private router: Router,
+    private toastr: ToastrService) { }
 
     getUserState(){
      return this.afAuth.authState;
@@ -27,7 +30,11 @@ export class AuthService {
        })
        .then(userCredential =>{
          if(userCredential){
+           this.uid = userCredential.user.uid
+           console.log(this.afAuth.auth.currentUser);
+           
            this.router.navigate(['/dashboard'])
+           this.toastr.success('Submitted successfull','EMP.Register')
          }
        })
     }
@@ -59,5 +66,7 @@ export class AuthService {
     logout(){
       return this.afAuth.auth.signOut();
     }
-    
+    getEmployees(){
+      return this.db.collection(`Providers/${this.afAuth.auth.currentUser.uid}`).snapshotChanges();
+   }
 }

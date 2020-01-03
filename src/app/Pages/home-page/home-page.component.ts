@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../database/auth/auth.service';
 
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -11,7 +12,8 @@ export class HomePageComponent implements OnInit {
   @Output() closeModalEvent = new EventEmitter<boolean>();
   authError: any;
   constructor(private router: Router,
-              private auth: AuthService) {}
+              private auth: AuthService,
+              ) {}
 
   goToDashboard(){
         this.router.navigate(['/dashboard']);  // define your component where you want to go
