@@ -8,7 +8,7 @@ body {
     width: 50%;
   }
   #sidebar-wrapper {
-    min-height: 100vh;
+    min-height: 100%;
     margin-left: -15rem;
     -webkit-transition: margin .25s ease-out;
     -moz-transition: margin .25s ease-out;
@@ -33,7 +33,7 @@ body {
     margin-left: 0;
   }
   
-  @media (min-width: 768px) {
+  @media (min-width: 0px) {
     #sidebar-wrapper {
       margin-left: 0;
     }
@@ -47,3 +47,10 @@ body {
       margin-left: -15rem;
     }
   }
+  .collapsing.width {
+    -webkit-transition-property: width, visibility;
+    transition-property: width, visibility;
+    width: 0;
+    height: 100vh;
+  }
+  
