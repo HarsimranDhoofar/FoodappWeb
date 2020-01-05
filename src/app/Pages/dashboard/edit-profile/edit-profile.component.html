@@ -21,7 +21,7 @@
         </div>
         <h3>Personal info</h3>
         
-        <form class="form-horizontal" role="form" *ngFor="let prov of list">
+        <form class="form-horizontal" role="form" *ngIf="prov">
           <div class="form-group">
             <label class="col-lg-3 control-label">First name:</label>
             <div class="col-lg-8">

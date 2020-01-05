@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { $ } from 'protractor';
+import { ProviderInfo } from './provider-info.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -66,7 +67,7 @@ export class AuthService {
     logout(){
       return this.afAuth.auth.signOut();
     }
-    getEmployees(){
-      return this.db.collection(`Providers/${this.afAuth.auth.currentUser.uid}`).snapshotChanges();
+    getEmployees(userid) {
+      return this.db.doc(`Providers/${userid}`).valueChanges() as Observable<ProviderInfo[]>;
    }
 }
