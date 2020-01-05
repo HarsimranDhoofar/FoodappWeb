@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../database/auth/auth.service';
 import { ProviderInfo } from '../../database/auth/provider-info.model';
 import { Observable } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-profile',
@@ -20,5 +21,8 @@ export class EditProfileComponent implements OnInit {
       console.log(this.prov)
     })
   }
-
+  editProviderFunc(form){
+    console.log(form.value)
+    this.auth.updateProvider(form.value);
+  }
 }

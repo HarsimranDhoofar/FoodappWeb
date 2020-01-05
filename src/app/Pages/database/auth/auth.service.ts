@@ -75,4 +75,8 @@ export class AuthService {
     getEmployees() {
       return this.db.doc(`Providers/${this.uid}`).valueChanges() as Observable<ProviderInfo[]>;
    }
+   updateProvider(data){
+      this.db.doc(`Providers/${this.uid}`).update(data);
+      this.toastr.success('Update successfull','EMP.Register')
+   }
 }

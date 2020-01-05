@@ -17,30 +17,30 @@
       <div class="col-md-9 personal-info">
         <div *ngIf= "prov">
           <br/>
-          <form #editProvider="ngForm" (ngSubmit)="editProvider(editProvider)" >
+          <form #editProvider="ngForm" (ngSubmit)="editProviderFunc(form)" >
             <div class = "row">
               <div class="col-md-12 mb-2">
                 <label for="serviceName">Service Name</label>
-                <input name="serviceName" type="text" class="form-control" id="serviceName" value="{{prov.serviceName}}" >
+                <input #serviceName="ngModel"  ngModel="{{prov.serviceName}}" name="serviceName" type="text" class="form-control" id="serviceName" value="{{prov.serviceName}}"  >
               </div>
             </div>
             <div class ="row">
               <div class = "col-md-12 mb-2">
                 <label for="address">Address</label>
-                <input  name="address" type="test" class="form-control" value="{{prov?.address}}" >
+                <input #address="ngModel"  ngModel="{{prov.address}}" name="address" type="test" class="form-control" value="{{prov.address}}">
               </div>
             </div>
              <div>
                <div class = "row">
                  <div class= "col-md-12 mb-2">
                     <label for="phone">Phone</label>
-                    <input  name="phone" type="test" class="form-control" value="{{prov?.phone}}" >   
+                    <input  #phone="ngModel"  ngModel="{{prov.phone}}" name="phone" type="test" class="form-control" value="{{prov.phone}}" >   
                  </div>
                </div>
                <div class = "row">
                 <div class= "col-md-12 mb-2">
                    <label for="email">E-mail</label>
-                   <input  name="email" type="email" class="form-control" id="email" value="{{prov?.email}}">   
+                   <input  #email="ngModel"  ngModel="{{prov.email}}" name="email" type="email" class="form-control" id="email" value="{{prov.email}}">   
                 </div>
               </div>
              </div> 
