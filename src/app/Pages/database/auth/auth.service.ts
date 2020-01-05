@@ -76,7 +76,17 @@ export class AuthService {
       return this.db.doc(`Providers/${this.uid}`).valueChanges() as Observable<ProviderInfo[]>;
    }
    updateProvider(data){
-      this.db.doc(`Providers/${this.uid}`).update(data);
+      this.db.doc(`Providers/${this.uid}`).update({
+        uid: this.uid,
+        serviceName:data.serviceName,
+        address: data.address,
+        phone: data.phone,
+        email: data.email,
+        cuisine:"",
+        deliveryRadius:"",
+        meals:"",
+        avatarImage:""
+      });
       this.toastr.success('Update successfull','EMP.Register')
    }
 }

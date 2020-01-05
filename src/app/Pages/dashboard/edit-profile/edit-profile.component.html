@@ -17,7 +17,7 @@
       <div class="col-md-9 personal-info">
         <div *ngIf= "prov">
           <br/>
-          <form #editProvider="ngForm" (ngSubmit)="editProviderFunc(form)" >
+          <form #editProvider="ngForm" (ngSubmit)="editProviderFunc(editProvider)" >
             <div class = "row">
               <div class="col-md-12 mb-2">
                 <label for="serviceName">Service Name</label>
