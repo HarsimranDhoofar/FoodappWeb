@@ -17,7 +17,7 @@ export class EditProfileComponent implements OnInit {
     this.auth.getEmployees().subscribe(prov =>{
       console.log(prov)
       this.prov = prov ;
-      
+      console.log(this.prov)
     })
   }
 

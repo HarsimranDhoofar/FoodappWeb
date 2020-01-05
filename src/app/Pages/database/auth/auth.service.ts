@@ -13,7 +13,7 @@ export class AuthService {
   uid : any;
   private eventAuthError = new BehaviorSubject<string>("");
   eventAuthError$ = this.eventAuthError.asObservable();
-  newUser: any;
+  newProviderVar: any;
   constructor(
     private afAuth: AngularFireAuth,
     private db:AngularFirestore,
@@ -39,13 +39,13 @@ export class AuthService {
          }
        })
     }
-    createUser(user){
-      this.afAuth.auth.createUserWithEmailAndPassword( user.email, user.password)
+    newProvider(provider){
+      this.afAuth.auth.createUserWithEmailAndPassword( provider.email, provider.password)
       .then( userCredential => {
-         this.newUser = user
+         this.newProviderVar = provider
 
          userCredential.user.updateProfile({
-          displayName: user.firstName + ' ' + user.lastName
+          displayName: provider.serviceName
          });
 
          this.insertUserData(userCredential).then(() =>{
@@ -58,10 +58,15 @@ export class AuthService {
     }
     insertUserData( userCredential: firebase.auth.UserCredential){
       return this.db.doc(`Providers/${userCredential.user.uid}`).set({
-        email:this.newUser.email,
-        firstName: this.newUser.firstName,
-        lastname: this.newUser.lastName,
-        address: this.newUser.address
+        uid: userCredential.user.uid,
+        serviceName:this.newProviderVar.serviceName,
+        address: this.newProviderVar.address,
+        phone: this.newProviderVar.phone,
+        email: this.newProviderVar.email,
+        cuisine:"",
+        deliveryRadius:"",
+        meals:"",
+        avatarImage:""
       })
     }
     logout(){

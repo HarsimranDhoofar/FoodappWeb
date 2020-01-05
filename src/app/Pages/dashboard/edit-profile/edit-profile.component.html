@@ -1,5 +1,6 @@
 <div class="container">
-    <h1>Edit Profile</h1>
+  <br/>
+    <h1>Change Your Information</h1>
   	<hr>
 	<div class="row">
       <!-- left column -->
@@ -14,50 +15,41 @@
       
       <!-- edit form column -->
       <div class="col-md-9 personal-info">
-        <div class="alert alert-info alert-dismissable">
-          <a class="panel-close close" data-dismiss="alert">×</a> 
-          <i class="fa fa-coffee"></i>
-          This is an <strong>.alert</strong>. Use this to show important messages to the user.
-        </div>
-        <h3>Personal info</h3>
-        <div *ngIf="prov">
-          <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)">
+        <div *ngIf= "prov">
+          <br/>
+          <form #editProvider="ngForm" (ngSubmit)="editProvider(editProvider)" >
             <div class = "row">
-              <div class="col-md-6 mb-2">
-                <label for="firstName">First name</label>
-                <input ngModel #firstname="ngModel" name="firstName" type="text" class="form-control" id="firstName">
-              </div>
-              <div class="col-md-6 mb-2">
-                  <label for="lastName">Last name</label>
-                  <input ngModel #lastname="ngModel" name="lastName" type="text" class="form-control" id="lastName">
+              <div class="col-md-12 mb-2">
+                <label for="serviceName">Service Name</label>
+                <input name="serviceName" type="text" class="form-control" id="serviceName" value="{{prov.serviceName}}" >
               </div>
             </div>
             <div class ="row">
               <div class = "col-md-12 mb-2">
-                <label for="email">Email</label>
-                <input ngModel #email="ngModel" name="email" type="email" class="form-control" >
+                <label for="address">Address</label>
+                <input  name="address" type="test" class="form-control" value="{{prov?.address}}" >
               </div>
             </div>
              <div>
                <div class = "row">
                  <div class= "col-md-12 mb-2">
-                    <label for="password">Password</label>
-                    <input ngModel #password="ngModel" name="password" type="password" class="form-control" >   
+                    <label for="phone">Phone</label>
+                    <input  name="phone" type="test" class="form-control" value="{{prov?.phone}}" >   
                  </div>
                </div>
                <div class = "row">
                 <div class= "col-md-12 mb-2">
-                   <label for="address">Address</label>
-                   <input ngModel #address="ngModel" name="address" type="test" class="form-control" id="address">   
+                   <label for="email">E-mail</label>
+                   <input  name="email" type="email" class="form-control" id="email" value="{{prov?.email}}">   
                 </div>
               </div>
              </div> 
           <div class="text-center form-sm mt-2">
-            <button class="btn btn-info" name ="registerBtn" type="submit">Register</button>
+            <button class="btn btn-info" name ="registerBtn" type="submit">Update</button>
           </div>
         </form>
       </div>
       </div>
   </div>
 </div>
-<hr>
+<br/><br/>

@@ -26,9 +26,8 @@ export class HomePageComponent implements OnInit {
       
     })
   }
- createUser(frm){
-      this.closeModalEvent.emit(false);
-      this.auth.createUser(frm.value);
+  newProvider(frm){
+      this.auth.newProvider(frm.value);
  }
  login(frm1){
   this.closeModalEvent.emit(false);

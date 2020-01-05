@@ -127,34 +127,42 @@
                          {{ authError?.message }}
                         </div>
                       </div>
-                      <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)">
+                      <form #newProviderForm="ngForm" (ngSubmit)="newProvider(newProviderForm)">
                         <div class = "row">
-                          <div class="col-md-6 mb-2">
-                            <label for="firstName">First name</label>
-                            <input ngModel #firstname="ngModel" name="firstName" type="text" class="form-control" id="firstName">
-                          </div>
-                          <div class="col-md-6 mb-2">
-                              <label for="lastName">Last name</label>
-                              <input ngModel #lastname="ngModel" name="lastName" type="text" class="form-control" id="lastName">
+                          <div class="col-md-12 mb-2">
+                            <label for="serviceName">Service Name</label>
+                            <input ngModel #serviceName="ngModel" name="serviceName" type="text" class="form-control" id="serviceName">
                           </div>
                         </div>
                         <div class ="row">
                           <div class = "col-md-12 mb-2">
-                            <label for="email">Email</label>
-                            <input ngModel #email="ngModel" name="email" type="email" class="form-control" >
+                            <label for="address">Address</label>
+                            <input ngModel #address="ngModel" name="address" type="text" class="form-control" id="address" >
                           </div>
                         </div>
                          <div>
                            <div class = "row">
                              <div class= "col-md-12 mb-2">
-                                <label for="password">Password</label>
-                                <input ngModel #password="ngModel" name="password" type="password" class="form-control" >   
+                                <label for="phone">Phone</label>
+                                <input ngModel #phone="ngModel" name="phone" type="text" class="form-control" id="phone">   
                              </div>
                            </div>
                            <div class = "row">
                             <div class= "col-md-12 mb-2">
-                               <label for="address">Address</label>
-                               <input ngModel #address="ngModel" name="address" type="test" class="form-control" id="address">   
+                               <label for="email">Email</label>
+                               <input ngModel #email="ngModel" name="email" type="text" class="form-control" id="email">   
+                            </div>
+                          </div>
+                          <div class = "row">
+                            <div class= "col-md-12 mb-2">
+                               <label for="password">Password</label>
+                               <input ngModel #password="ngModel" name="password" type="password" class="form-control" id="password">   
+                            </div>
+                          </div>
+                          <div class = "row">
+                            <div class= "col-md-12 mb-2">
+                               <label for="cpassword">Confirm Password</label>
+                               <input ngModel #cpassword="ngModel" name="cpassword" type="password" class="form-control" id="cpassword">   
                             </div>
                           </div>
                          </div> 

@@ -1,7 +1,11 @@
 export class ProviderInfo {
-    id: string;
-    firstName: string;
-    lastName: string;
+    uid: string;
+    serviceName: string;
     address: string;
+    phone: string;
     email: string;
+    meal:string;
+    deliveryRadius: string;
+    cuisine: string;
+    avatarImage: string;
 }
