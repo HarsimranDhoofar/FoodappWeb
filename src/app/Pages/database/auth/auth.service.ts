@@ -67,7 +67,7 @@ export class AuthService {
     logout(){
       return this.afAuth.auth.signOut();
     }
-    getEmployees(userid) {
-      return this.db.doc(`Providers/${userid}`).valueChanges() as Observable<ProviderInfo[]>;
+    getEmployees() {
+      return this.db.doc(`Providers/${this.uid}`).valueChanges() as Observable<ProviderInfo[]>;
    }
 }
