@@ -1,1 +1,171 @@
-<p>update-menu works!</p>
+<!-- Page Content -->
+<div class="container">
+    <h1 class="my-4">
+      <small>Change Menu</small>
+
+      <div class="btn-group float-right justify-content-between btnMealPackage" role="group" aria-label="Button group with nested dropdown">
+        <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select Package
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item" href="#">Small Package</a>
+              <a class="dropdown-item" href="#">Large Package</a>
+            </div>
+          </div>
+          <div class="btn-group" role="group">
+          <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#addNewPackage">
+            <i class="fa fa-plus"></i> Add Meal Package
+          </button>
+        </div>
+ 
+  </div>
+      
+    </h1>
+    <hr>
+    <h3 align="center"><small><img src="http://placehold.it/65 " class="center"/>&nbsp; Small Package</small></h3>
+    <table class="table responsive table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Day</th>
+            <th scope="col">Meal</th>
+            <th scope="col">Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>Otto</td>
+            <td> <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
+                <i class="fa fa-edit"></i>
+              </button></td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>Thornton</td>
+            <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
+                <i class="fa fa-edit"></i>
+              </button></td>
+          </tr>
+          <tr>
+            <td >Wednesday</td>
+            <td>@twitter</td>
+            <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
+                <i class="fa fa-edit"></i>
+              </button></td>
+          </tr>
+          <tr>
+            <td >Thursday</td>
+            <td>@twitter</td>
+            <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
+                <i class="fa fa-edit"></i>
+              </button></td>
+          </tr>
+          <tr>
+            <td >Friday</td>
+            <td>@twitter</td>
+            <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
+                <i class="fa fa-edit"></i>
+              </button></td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>@twitter</td>
+            <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
+                <i class="fa fa-edit"></i>
+              </button></td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>@twitter</td>
+            <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
+                <i class="fa fa-edit"></i>
+              </button></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#deletePackage">
+        <i class="fa fa-trash"></i> Delete Package
+      </button>
+    </div>
+
+
+    <!-- /.container -->
+
+    <div class="modal fade" id="addNewPackage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Create New Meal Package</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <input type="file" (change)="fileChangeEvent($event)" />
+
+                <image-cropper
+                    [imageChangedEvent]="imageChangedEvent"
+                    [maintainAspectRatio]="true"
+                    [aspectRatio]="4 / 3"
+                    [resizeToWidth]="128"
+                    format="png"
+                    (imageCropped)="imageCropped($event)"
+                    (imageLoaded)="imageLoaded()"
+                    (cropperReady)="cropperReady()"
+                    (loadImageFailed)="loadImageFailed()"
+                ></image-cropper>
+                <form>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Package Name</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Type the Package Name">
+                    </div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Create Package</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="editMealModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="deletePackage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             <p>Are you sure that you want to delete Small Package permanenty?</p>
+             <p>Once deleted you will loose all the data within package</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
