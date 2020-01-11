@@ -14,6 +14,7 @@ import { OverviewPageComponent } from './Pages/dashboard/overview-page/overview-
 import { UpdateMenuComponent } from './Pages/dashboard/update-menu/update-menu.component';
 import { CustomerListComponent } from './Pages/dashboard/customer-list/customer-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ImageCropperModule } from 'ngx-image-cropper';
 import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFireAuthModule,
     AngularFirestoreModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ImageCropperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
