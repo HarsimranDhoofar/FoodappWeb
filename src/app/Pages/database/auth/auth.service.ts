@@ -6,10 +6,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { $ } from 'protractor';
 import { ProviderInfo } from './provider-info.model';
+import { MealData } from './meal-data.model';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
   uid : any;
   private eventAuthError = new BehaviorSubject<string>("");
   eventAuthError$ = this.eventAuthError.asObservable();
@@ -35,7 +37,7 @@ export class AuthService {
            console.log(this.afAuth.auth.currentUser);
            
            this.router.navigate(['/dashboard'])
-           this.toastr.success('Submitted successfull','EMP.Register')
+           this.toastr.success('Successfull','Login')
          }
        })
     }
@@ -69,6 +71,7 @@ export class AuthService {
         avatarImage:""
       })
     }
+
     logout(){
       return this.afAuth.auth.signOut();
     }
@@ -87,6 +90,21 @@ export class AuthService {
         meals:"",
         avatarImage:""
       });
-      this.toastr.success('Update successfull','EMP.Register')
+      this.toastr.success('Updated','Profile')
    }
+   addNewPackage(addNewPackage: any) {
+    this.db.collection(`Providers`).doc(`${this.uid}`).collection(`mealPackage`).doc(`${addNewPackage.packageName}`).set({
+      packageName: addNewPackage.packageName,
+      Monday:"",
+      Tuesday:"",
+      Wednesday:"",
+      Thursday:"",
+      Friday:"",
+      Saturaday:"",
+      Sunday:""
+    });
+  }
+  getMealPackageList() {
+    return  this.db.collection(`Providers`).doc(`${this.uid}`).valueChanges();
+ }
 }

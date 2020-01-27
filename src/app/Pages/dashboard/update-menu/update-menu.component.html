@@ -94,6 +94,7 @@
 
     <div class="modal fade" id="addNewPackage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
+          <form #addNewPackage="ngForm" (ngSubmit)="addNewPackageNameFunc(addNewPackage)" >
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalCenterTitle">Create New Meal Package</h5>
@@ -115,18 +116,19 @@
                     (cropperReady)="cropperReady()"
                     (loadImageFailed)="loadImageFailed()"
                 ></image-cropper>
-                <form>
+               
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Package Name</label>
-                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Type the Package Name">
+                      <input ngModel #packageName="ngModel" type="text" class="form-control" name="packageName" placeholder="Type the Package Name">
                     </div>
-                  </form>
+                  
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Create Package</button>
+              <button type="submit" class="btn btn-primary">Create Package</button>
             </div>
           </div>
+          </form>
         </div>
       </div>
 

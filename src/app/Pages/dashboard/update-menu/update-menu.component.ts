@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
-
+import { AuthService } from '../../database/auth/auth.service';
 @Component({
   selector: 'app-update-menu',
   templateUrl: './update-menu.component.html',
@@ -8,10 +8,20 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
 })
 export class UpdateMenuComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private auth: AuthService) { }
+ prov: any
   ngOnInit() {
+    this.auth.getMealPackageList().subscribe(prov =>{
+      console.log(prov.values)
+      this.prov = prov ;
+      console.log(this.prov)
+    })
   }
+
+  addNewPackageNameFunc(addNewPackage){
+    this.auth.addNewPackage(addNewPackage.value)
+  }
+
   imageChangedEvent: any = '';
   croppedImage: any = '';
   
