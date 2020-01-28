@@ -12,7 +12,7 @@ export class UpdateMenuComponent implements OnInit {
  prov: any
   ngOnInit() {
     this.auth.getMealPackageList().subscribe(prov =>{
-      console.log(prov.values)
+      console.log(prov)
       this.prov = prov ;
       console.log(this.prov)
     })

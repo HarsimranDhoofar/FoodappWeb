@@ -105,6 +105,6 @@ export class AuthService {
     });
   }
   getMealPackageList() {
-    return  this.db.collection(`Providers`).doc(`${this.uid}`).valueChanges();
+    return  this.db.collection(`Providers`).doc(`${this.uid}`).collection(`mealPackage`).valueChanges();
  }
 }
