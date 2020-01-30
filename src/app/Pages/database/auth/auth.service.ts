@@ -93,8 +93,11 @@ export class AuthService {
       this.toastr.success('Updated','Profile')
    }
    addNewPackage(addNewPackage: any) {
+
     this.db.collection(`Providers`).doc(`${this.uid}`).collection(`mealPackage`).doc(`${addNewPackage.packageName}`).set({
-      packageName: addNewPackage.packageName,
+      
+    });
+    this.db.collection(`Providers`).doc(`${this.uid}`).collection(`mealPackage`).doc(`${addNewPackage.packageName}`).set({
       Monday:"",
       Tuesday:"",
       Wednesday:"",

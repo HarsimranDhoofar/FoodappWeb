@@ -9,12 +9,16 @@ import { AuthService } from '../../database/auth/auth.service';
 export class UpdateMenuComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
- prov: any
+ prov1: Array<object> = [];
   ngOnInit() {
     this.auth.getMealPackageList().subscribe(prov =>{
-      console.log(prov)
-      this.prov = prov ;
-      console.log(this.prov)
+      prov.forEach(entry => {
+        console.log(entry)
+        this.prov1.push(entry);  //assign the data from subscription to your class variable
+      })
+      // console.log(prov[1].packageName)
+      //   this.prov = prov ;
+      // console.log(this.prov)
     })
   }
 
