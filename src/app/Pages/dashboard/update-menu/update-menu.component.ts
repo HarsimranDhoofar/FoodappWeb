@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { AuthService } from '../../database/auth/auth.service';
+import { MealData } from '../../database/auth/meal-data.model';
 @Component({
   selector: 'app-update-menu',
   templateUrl: './update-menu.component.html',
@@ -10,6 +11,8 @@ export class UpdateMenuComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
  prov1: Array<object> = [];
+ dailyFood: any
+ currentPackageName:any
   ngOnInit() {
     this.auth.getMealPackageList().subscribe(prov =>{
       prov.forEach(entry => {
@@ -21,11 +24,21 @@ export class UpdateMenuComponent implements OnInit {
       // console.log(this.prov)
     })
   }
-
+  onPackageSelect(emp){
+    console.log(emp.packageName)
+    this.currentPackageName = emp.packageName
+    this.auth.getMeal(emp.packageName).subscribe(dailyFood =>{
+      console.log(dailyFood)
+         this.dailyFood = dailyFood ;
+       console.log(this.dailyFood)
+  })
+}
   addNewPackageNameFunc(addNewPackage){
     this.auth.addNewPackage(addNewPackage.value)
   }
-
+  addPackageContentFunc(addContent){
+    this.auth.addPackageContent(addContent.value, this.currentPackageName)
+  }
   imageChangedEvent: any = '';
   croppedImage: any = '';
   

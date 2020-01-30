@@ -93,10 +93,6 @@ export class AuthService {
       this.toastr.success('Updated','Profile')
    }
    addNewPackage(addNewPackage: any) {
-
-    this.db.collection(`Providers`).doc(`${this.uid}`).collection(`mealPackage`).doc(`${addNewPackage.packageName}`).set({
-      
-    });
     this.db.collection(`Providers`).doc(`${this.uid}`).collection(`mealPackage`).doc(`${addNewPackage.packageName}`).set({
       Monday:"",
       Tuesday:"",
@@ -107,7 +103,23 @@ export class AuthService {
       Sunday:""
     });
   }
+  addPackageContent(addContent: any, currentPackageName){
+    this.db.collection(`Providers`).doc(`${this.uid}`).collection(`mealPackage`).doc(`${currentPackageName}`).update({
+      Monday:"",
+      Tuesday:"",
+      Wednesday:"",
+      Thursday:"",
+      Friday:"",
+      Saturaday:"",
+      Sunday:""
+    });
+    this.toastr.success('Updated','Meal')
+  }
   getMealPackageList() {
     return  this.db.collection(`Providers`).doc(`${this.uid}`).collection(`mealPackage`).valueChanges();
+ }
+ getMeal(packageName){
+   console.log(packageName);
+   return  this.db.collection(`Providers`).doc(`${this.uid}`).collection(`mealPackage`).doc(packageName).valueChanges();
  }
 }

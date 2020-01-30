@@ -9,7 +9,7 @@
               Select Package
             </button>
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" >
-              <a class="dropdown-item" href="#" *ngFor="let emp of prov1">{{emp.packageName}}</a>
+              <a class="dropdown-item" (click)="onPackageSelect(emp)" *ngFor="let emp of prov1">{{emp.packageName}}</a>
             </div>
           </div>
           <div class="btn-group" role="group">
@@ -22,7 +22,9 @@
       
     </h1>
     <hr>
-    <h3 align="center"><small><img src="http://placehold.it/65 " class="center"/>&nbsp; Small Package</small></h3>
+
+    <div *ngIf="dailyFood">
+    <h3 align="center"><small><img src="http://placehold.it/65 " class="center"/>&nbsp; {{dailyFood.packageName}}</small></h3>
     <table class="table responsive table-hover">
         <thead>
           <tr>
@@ -34,49 +36,49 @@
         <tbody>
           <tr>
             <td>Monday</td>
-            <td>Otto</td>
+            <td>{{dailyFood.Monday}}</td>
             <td> <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
                 <i class="fa fa-edit"></i>
               </button></td>
           </tr>
           <tr>
             <td>Tuesday</td>
-            <td>Thornton</td>
+            <td>{{dailyFood.Tuesday}}</td>
             <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
                 <i class="fa fa-edit"></i>
               </button></td>
           </tr>
           <tr>
             <td >Wednesday</td>
-            <td>@twitter</td>
+            <td>{{dailyFood.Wednesday}}</td>
             <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
                 <i class="fa fa-edit"></i>
               </button></td>
           </tr>
           <tr>
             <td >Thursday</td>
-            <td>@twitter</td>
+            <td>{{dailyFood.Thursday}}</td>
             <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
                 <i class="fa fa-edit"></i>
               </button></td>
           </tr>
           <tr>
             <td >Friday</td>
-            <td>@twitter</td>
+            <td>{{dailyFood.Friday}}</td>
             <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
                 <i class="fa fa-edit"></i>
               </button></td>
           </tr>
           <tr>
             <td>Saturday</td>
-            <td>@twitter</td>
+            <td>{{dailyFood.Saturday}}</td>
             <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
                 <i class="fa fa-edit"></i>
               </button></td>
           </tr>
           <tr>
             <td>Sunday</td>
-            <td>@twitter</td>
+            <td>{{dailyFood.Sunday}}</td>
             <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
                 <i class="fa fa-edit"></i>
               </button></td>
@@ -88,7 +90,7 @@
       </button>
     </div>
 
-
+</div>
     <!-- /.container -->
 
     <div class="modal fade" id="addNewPackage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -133,15 +135,18 @@
 
       <div class="modal fade" id="editMealModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
+          <form #addPackageContent="ngForm" (ngSubmit)="addPackageContentFunc(addContent)" ></form>
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalCenterTitle">Edit Meal</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              ...
+              <div class="form-group">
+                <input ngModel #packageContent="ngModel" type="text" class="form-control" name="packageContent" placeholder="Type the content in this package">
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
