@@ -11,6 +11,7 @@ export class UpdateMenuComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
  prov1: Array<object> = [];
+ key: ""
  dailyFood: any
  currentPackageName:any
   ngOnInit() {
@@ -29,6 +30,7 @@ export class UpdateMenuComponent implements OnInit {
     this.currentPackageName = emp.packageName
     this.auth.getMeal(emp.packageName).subscribe(dailyFood =>{
       console.log(dailyFood)
+         this.key= dailyFood.key;
          this.dailyFood = dailyFood ;
        console.log(this.dailyFood)
   })

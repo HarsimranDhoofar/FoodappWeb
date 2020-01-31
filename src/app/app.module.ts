@@ -16,6 +16,7 @@ import { CustomerListComponent } from './Pages/dashboard/customer-list/customer-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ToastrModule } from 'ngx-toastr';
+import { StorageServiceModule} from 'angular-webstorage-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFirestoreModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    ImageCropperModule
+    ImageCropperModule,
+    StorageServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
