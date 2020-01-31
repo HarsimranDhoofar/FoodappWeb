@@ -35,9 +35,11 @@ export class UpdateMenuComponent implements OnInit {
 }
   addNewPackageNameFunc(addNewPackage){
     this.auth.addNewPackage(addNewPackage.value)
+    this.prov1 =[];
   }
   addPackageContentFunc(addContent){
-    this.auth.addPackageContent(addContent.value, this.currentPackageName)
+    console.log(this.currentPackageName)
+    this.auth.addPackageContent(addContent, this.currentPackageName)
   }
   imageChangedEvent: any = '';
   croppedImage: any = '';

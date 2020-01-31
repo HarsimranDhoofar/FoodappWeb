@@ -94,6 +94,7 @@ export class AuthService {
    }
    addNewPackage(addNewPackage: any) {
     this.db.collection(`Providers`).doc(`${this.uid}`).collection(`mealPackage`).doc(`${addNewPackage.packageName}`).set({
+      packageName:addNewPackage.packageName,
       Monday:"",
       Tuesday:"",
       Wednesday:"",
@@ -102,16 +103,11 @@ export class AuthService {
       Saturaday:"",
       Sunday:""
     });
+
   }
   addPackageContent(addContent: any, currentPackageName){
     this.db.collection(`Providers`).doc(`${this.uid}`).collection(`mealPackage`).doc(`${currentPackageName}`).update({
-      Monday:"",
-      Tuesday:"",
-      Wednesday:"",
-      Thursday:"",
-      Friday:"",
-      Saturaday:"",
-      Sunday:""
+      Monday:"harsimran",
     });
     this.toastr.success('Updated','Meal')
   }
