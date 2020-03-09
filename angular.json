@@ -126,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "FoodAppWeb"
+    }
+  },
+  "defaultProject": "FoodAppWeb",
+  "cli": {
+    "analytics": "33eefe44-bcdf-449f-a2fd-24e7480b5a6a"
+  }
 }

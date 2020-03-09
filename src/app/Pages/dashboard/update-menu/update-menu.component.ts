@@ -14,6 +14,7 @@ export class UpdateMenuComponent implements OnInit {
  key: any
  dailyFood: any
  currentPackageName:any
+ days: String
   ngOnInit() {
     this.auth.getMealPackageList().subscribe(prov =>{
       prov.forEach(entry => {
@@ -39,9 +40,14 @@ export class UpdateMenuComponent implements OnInit {
     this.auth.addNewPackage(addNewPackage.value)
     this.prov1 =[];
   }
-  addPackageContentFunc(addContent){
+  addPackageContentFunc(addPackageContent){
     console.log(this.currentPackageName)
-    this.auth.addPackageContent(addContent, this.currentPackageName)
+    console.log(addPackageContent.value)
+    this.auth.addPackageContent(addPackageContent.value, this.currentPackageName, this.days)
+  }
+  day(day){
+    this.days = day;
+    console.log(this.days)
   }
   imageChangedEvent: any = '';
   croppedImage: any = '';

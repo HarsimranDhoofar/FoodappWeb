@@ -1,179 +1,169 @@
 <!-- Page Content -->
 <div class="container">
     <h1 class="my-4">
-      <small>Change Menu</small>
+        <small>Change Menu</small>
 
-      <div class="btn-group float-right justify-content-between btnMealPackage" role="group" aria-label="Button group with nested dropdown">
-        <div class="btn-group" role="group">
-            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="btn-group float-right justify-content-between btnMealPackage" role="group" aria-label="Button group with nested dropdown">
+            <div class="btn-group" role="group">
+                <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Select Package
             </button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" >
-              <a class="dropdown-item" (click)="onPackageSelect(emp)" *ngFor="let emp of prov1">{{emp.packageName}}</a>
+                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <a class="dropdown-item" (click)="onPackageSelect(emp)" *ngFor="let emp of prov1">{{emp.packageName}}</a>
+                </div>
             </div>
-          </div>
-          <div class="btn-group" role="group">
-          <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#addNewPackage">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#addNewPackage">
             <i class="fa fa-plus"></i> Add Meal Package
           </button>
+            </div>
+
         </div>
- 
-  </div>
-      
+
     </h1>
     <hr>
 
     <div *ngIf="dailyFood">
-    <h3 align="center"><small><img src="http://placehold.it/65 " class="center"/>&nbsp; {{dailyFood.packageName}}</small></h3>
-    <table class="table responsive table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Day</th>
-            <th scope="col">Meal</th>
-            <th scope="col">Edit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Monday</td>
-            <td>{{dailyFood.Monday}}</td>
-            <td> <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
+        <h3 align="center"><small><img src="http://placehold.it/65 " class="center"/>&nbsp; {{dailyFood.packageName}}</small></h3>
+        <table class="table responsive table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">Meal</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monday</td>
+                    <td>{{dailyFood.monday}}</td>
+                    <td> <button type="button" class="btn btn-primary " ng-click="day(monday)" data-toggle="modal" data-target="#editMealModel">
                 <i class="fa fa-edit"></i>
               </button></td>
-          </tr>
-          <tr>
-            <td>Tuesday</td>
-            <td>{{dailyFood.Tuesday}}</td>
-            <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                    <td>{{dailyFood.tuesday}}</td>
+                    <td><button type="button" class="btn btn-primary " ng-click="day(tuesday)" data-toggle="modal" data-target="#editMealModel">
                 <i class="fa fa-edit"></i>
               </button></td>
-          </tr>
-          <tr>
-            <td >Wednesday</td>
-            <td>{{dailyFood.Wednesday}}</td>
-            <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>{{dailyFood.wednesday}}</td>
+                    <td><button type="button" class="btn btn-primary " ng-click="day(wednesday)" data-toggle="modal" data-target="#editMealModel">
                 <i class="fa fa-edit"></i>
               </button></td>
-          </tr>
-          <tr>
-            <td >Thursday</td>
-            <td>{{dailyFood.Thursday}}</td>
-            <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
+                </tr>
+                <tr>
+                    <td>Thursday</td>
+                    <td>{{dailyFood.thursday}}</td>
+                    <td><button type="button" class="btn btn-primary " ng-click="day(thursday)" data-toggle="modal" data-target="#editMealModel">
                 <i class="fa fa-edit"></i>
               </button></td>
-          </tr>
-          <tr>
-            <td >Friday</td>
-            <td>{{dailyFood.Friday}}</td>
-            <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td>{{dailyFood.friday}}</td>
+                    <td><button type="button" class="btn btn-primary " ng-click="day(friday)" data-toggle="modal" data-target="#editMealModel">
                 <i class="fa fa-edit"></i>
               </button></td>
-          </tr>
-          <tr>
-            <td>Saturday</td>
-            <td>{{dailyFood.Saturday}}</td>
-            <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td>{{dailyFood.saturday}}</td>
+                    <td><button type="button" class="btn btn-primary " ng-click="day(saturday)" data-toggle="modal" data-target="#editMealModel">
                 <i class="fa fa-edit"></i>
               </button></td>
-          </tr>
-          <tr>
-            <td>Sunday</td>
-            <td>{{dailyFood.Sunday}}</td>
-            <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModel">
+                </tr>
+                <tr>
+                    <td>Sunday</td>
+                    <td>{{dailyFood.sunday}}</td>
+                    <td><button type="button" class="btn btn-primary " ng-click="day(sunday)" data-toggle="modal" data-target="#editMealModel">
                 <i class="fa fa-edit"></i>
               </button></td>
-          </tr>
-        </tbody>
-      </table>
-      <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#deletePackage">
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#deletePackage">
         <i class="fa fa-trash"></i> Delete Package
       </button>
     </div>
 
 </div>
-    <!-- /.container -->
+<!-- /.container -->
 
-    <div class="modal fade" id="addNewPackage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <form #addNewPackage="ngForm" (ngSubmit)="addNewPackageNameFunc(addNewPackage)" >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Create New Meal Package</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<div class="modal fade" id="addNewPackage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <form #addNewPackage="ngForm" (ngSubmit)="addNewPackageNameFunc(addNewPackage)">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Create New Meal Package</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-            </div>
-            <div class="modal-body">
-                <input type="file" (change)="fileChangeEvent($event)" />
+                </div>
+                <div class="modal-body">
+                    <input type="file" (change)="fileChangeEvent($event)" />
 
-                <image-cropper
-                    [imageChangedEvent]="imageChangedEvent"
-                    [maintainAspectRatio]="true"
-                    [aspectRatio]="4 / 3"
-                    [resizeToWidth]="128"
-                    format="png"
-                    (imageCropped)="imageCropped($event)"
-                    (imageLoaded)="imageLoaded()"
-                    (cropperReady)="cropperReady()"
-                    (loadImageFailed)="loadImageFailed()"
-                ></image-cropper>
-               
+                    <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 3" [resizeToWidth]="128" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+
                     <div class="form-group">
-                      <label for="exampleFormControlInput1">Package Name</label>
-                      <input ngModel #packageName="ngModel" type="text" class="form-control" name="packageName" placeholder="Type the Package Name">
+                        <label for="exampleFormControlInput1">Package Name</label>
+                        <input ngModel #packageName="ngModel" type="text" class="form-control" name="packageName" placeholder="Type the Package Name">
                     </div>
-                  
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Create Package</button>
-            </div>
-          </div>
-          </form>
-        </div>
-      </div>
 
-      <div class="modal fade" id="editMealModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <form #addPackageContent="ngForm" (ngSubmit)="addPackageContentFunc(addContent)" >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Edit Meal</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Create Package</button>
+                </div>
             </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <input ngModel #packageContent="ngModel" type="text" class="form-control" name="packageContent" placeholder="Type the content in this package">
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
         </form>
-        </div>
-      </div>
-      <div class="modal fade" id="deletePackage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
+    </div>
+</div>
+
+<div class="modal fade" id="editMealModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <form #addPackageContent="ngForm" (ngSubmit)="addPackageContentFunc(addPackageContent)">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Edit Meal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input ngModel #packageContent="ngModel" type="text" class="form-control" name="packageContent" placeholder="Type the content in this package">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal fade" id="deletePackage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-             <p>Are you sure that you want to delete Small Package permanenty?</p>
-             <p>Once deleted you will loose all the data within package</p>
+                <p>Are you sure that you want to delete Small Package permanenty?</p>
+                <p>Once deleted you will loose all the data within package</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-primary">Confirm</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Confirm</button>
             </div>
-          </div>
-        
         </div>
-      </div>
+
+    </div>
+</div>

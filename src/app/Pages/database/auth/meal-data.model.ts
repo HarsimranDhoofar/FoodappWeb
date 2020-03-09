@@ -1,10 +1,10 @@
 export class MealData {
       packageName: string;
-      Monday:string;
-      Tuesday:string;
-      Wednesday:string;
-      Thursday:string;
-      Friday:string;
-      Saturaday:string;
-      Sunday:string;
+      monday:string;
+      tuesday:string;
+      wednesday:string;
+      thursday:string;
+      friday:string;
+      saturday:string;
+      sunday:string;
 }
