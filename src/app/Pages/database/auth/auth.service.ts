@@ -99,19 +99,56 @@ export class AuthService {
    addNewPackage(addNewPackage: any) {
     this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).doc(`${addNewPackage.packageName}`).set({
       packageName:addNewPackage.packageName,
-      monday:"",
-      tuesday:"",
-      wednesday:"",
-      thursday:"",
-      friday:"",
-      saturaday:"",
-      sunday:""
+      price:addNewPackage.packagePrice,
+      monday:"No Meal. Please Click on Edit Button to add what you want to give your customers on Monday -->",
+      tuesday:"No Meal. Please Click on Edit Button to add what you want to give your customers on Tuesday -->",
+      wednesday:"No Meal. Please Click on Edit Button to add what you want to give your customers on Wednesday -->",
+      thursday:"No Meal. Please Click on Edit Button to add what you want to give your customers on Thursday -->",
+      friday:"No Meal. Please Click on Edit Button to add what you want to give your customers on Friday -->",
+      saturday:"No Meal. Please Click on Edit Button to add what you want to give your customers on Saturday -->",
+      sunday:"No Meal. Please Click on Edit Button to add what you want to give your customers on Sunday -->"
     });
 
   }
-  addPackageContent(addPackageContent: any, currentPackageName, days){
+  addPackageContentMondayAuth(addPackageContentMonday: any, currentPackageName){
     this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).doc(`${currentPackageName}`).update({
-      [days]: addPackageContent.packageContent
+      monday: addPackageContentMonday.packageContentMonday
+    });
+    this.toastr.success('Updated','Meal')
+  }
+  addPackageContentTuesdayAuth(addPackageContentTuesday: any, currentPackageName){
+    this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).doc(`${currentPackageName}`).update({
+      tuesday: addPackageContentTuesday.addPackageContentTuesday
+    });
+    this.toastr.success('Updated','Meal')
+  }
+  addPackageContentWednesdayAuth(addPackageContentWednesday: any, currentPackageName){
+    this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).doc(`${currentPackageName}`).update({
+      wednesday: addPackageContentWednesday.packageContentWednesday
+    });
+    this.toastr.success('Updated','Meal')
+  }
+  addPackageContentThursdayAuth(addPackageContentThursday: any, currentPackageName){
+    this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).doc(`${currentPackageName}`).update({
+      thursday: addPackageContentThursday.packageContentThursday
+    });
+    this.toastr.success('Updated','Meal')
+  }
+  addPackageContentFridayAuth(addPackageContentFriday: any, currentPackageName){
+    this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).doc(`${currentPackageName}`).update({
+      friday: addPackageContentFriday.packageContentFriday
+    });
+    this.toastr.success('Updated','Meal')
+  }
+  addPackageContentSaturdayAuth(addPackageContentSaturday: any, currentPackageName){
+    this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).doc(`${currentPackageName}`).update({
+      saturday: addPackageContentSaturday.packageContentSaturday
+    });
+    this.toastr.success('Updated','Meal')
+  }
+  addPackageContentSundayAuth(addPackageContentSunday: any, currentPackageName){
+    this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).doc(`${currentPackageName}`).update({
+      sunday: addPackageContentSunday.packageContentSunday
     });
     this.toastr.success('Updated','Meal')
   }

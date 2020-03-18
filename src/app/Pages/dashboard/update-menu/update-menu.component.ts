@@ -37,18 +37,42 @@ export class UpdateMenuComponent implements OnInit {
   })
 }
   addNewPackageNameFunc(addNewPackage){
+    console.log(addNewPackage.value)
     this.auth.addNewPackage(addNewPackage.value)
     this.prov1 =[];
   }
-  addPackageContentFunc(addPackageContent){
-    console.log(this.currentPackageName)
-    console.log(addPackageContent.value)
-    this.auth.addPackageContent(addPackageContent.value, this.currentPackageName, this.days)
+ 
+  addPackageContentMondayFunc(addPackageContentMonday){
+    console.log(addPackageContentMonday.value)
+    this.auth.addPackageContentMondayAuth(addPackageContentMonday.value, this.currentPackageName)
   }
-  day(day){
-    this.days = day;
-    console.log(this.days)
+  addPackageContentTuesdayFunc(addPackageContentTuesday){
+    console.log(addPackageContentTuesday.value)
+    this.auth.addPackageContentTuesdayAuth(addPackageContentTuesday.value, this.currentPackageName)
   }
+  addPackageContentWednesdayFunc(addPackageContentWednesday){
+    console.log(addPackageContentWednesday.value)
+    this.auth.addPackageContentWednesdayAuth(addPackageContentWednesday.value, this.currentPackageName)
+  }
+  addPackageContentThursdayFunc(addPackageContentThursday){
+    console.log(addPackageContentThursday.value)
+    this.auth.addPackageContentThursdayAuth(addPackageContentThursday.value, this.currentPackageName)
+  }
+  addPackageContentFridayFunc(addPackageContentFriday){
+    console.log(addPackageContentFriday.value)
+    this.auth.addPackageContentFridayAuth(addPackageContentFriday.value, this.currentPackageName)
+  }
+  addPackageContentSaturdayFunc(addPackageContentSaturday){
+    console.log(addPackageContentSaturday.value)
+    this.auth.addPackageContentSaturdayAuth(addPackageContentSaturday.value, this.currentPackageName)
+  }
+  addPackageContentSundayFunc(addPackageContentSunday){
+    console.log(addPackageContentSunday.value)
+    this.auth.addPackageContentSundayAuth(addPackageContentSunday.value, this.currentPackageName)
+  }
+  
+
+  
   imageChangedEvent: any = '';
   croppedImage: any = '';
   

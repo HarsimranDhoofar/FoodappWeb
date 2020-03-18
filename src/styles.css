@@ -1,11 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+
 /* html{
     overflow-y: scroll;
 } */
 
 html {
-    overflow: auto;
+    overflow-y: auto;
 }
-footer{
+
+
+/* footer{
   position:static;
- }
+ } */

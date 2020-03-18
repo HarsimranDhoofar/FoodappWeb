@@ -24,7 +24,11 @@
     <hr>
 
     <div *ngIf="dailyFood">
-        <h3 align="center"><small><img src="http://placehold.it/65 " class="center"/>&nbsp; {{dailyFood.packageName}}</small></h3>
+        <h3 align="center"><small><img src="http://placehold.it/65 " class="center"/>&nbsp; {{dailyFood.packageName}}</small>
+
+            <h5 align="float-right"><small>$ &nbsp;{{dailyFood.price}}</small></h5>
+        </h3>
+
         <table class="table responsive table-hover">
             <thead>
                 <tr>
@@ -35,51 +39,51 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Monday</td>
+                    <td><b>Monday</b></td>
                     <td>{{dailyFood.monday}}</td>
-                    <td> <button type="button" class="btn btn-primary " ng-click="day(monday)" data-toggle="modal" data-target="#editMealModel">
+                    <td> <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModelMonday">
                 <i class="fa fa-edit"></i>
               </button></td>
                 </tr>
                 <tr>
-                    <td>Tuesday</td>
+                    <td><b>Tuesday</b></td>
                     <td>{{dailyFood.tuesday}}</td>
-                    <td><button type="button" class="btn btn-primary " ng-click="day(tuesday)" data-toggle="modal" data-target="#editMealModel">
+                    <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModelTuesday">
                 <i class="fa fa-edit"></i>
               </button></td>
                 </tr>
                 <tr>
-                    <td>Wednesday</td>
+                    <td><b>Wednesday</b></td>
                     <td>{{dailyFood.wednesday}}</td>
-                    <td><button type="button" class="btn btn-primary " ng-click="day(wednesday)" data-toggle="modal" data-target="#editMealModel">
+                    <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModelWednesday">
                 <i class="fa fa-edit"></i>
               </button></td>
                 </tr>
                 <tr>
-                    <td>Thursday</td>
+                    <td><b>Thursday</b></td>
                     <td>{{dailyFood.thursday}}</td>
-                    <td><button type="button" class="btn btn-primary " ng-click="day(thursday)" data-toggle="modal" data-target="#editMealModel">
+                    <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModelThursday">
                 <i class="fa fa-edit"></i>
               </button></td>
                 </tr>
                 <tr>
-                    <td>Friday</td>
+                    <td><b>Friday</b></td>
                     <td>{{dailyFood.friday}}</td>
-                    <td><button type="button" class="btn btn-primary " ng-click="day(friday)" data-toggle="modal" data-target="#editMealModel">
+                    <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModelFriday">
                 <i class="fa fa-edit"></i>
               </button></td>
                 </tr>
                 <tr>
-                    <td>Saturday</td>
+                    <td><b>Saturday</b></td>
                     <td>{{dailyFood.saturday}}</td>
-                    <td><button type="button" class="btn btn-primary " ng-click="day(saturday)" data-toggle="modal" data-target="#editMealModel">
+                    <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModelSaturday">
                 <i class="fa fa-edit"></i>
               </button></td>
                 </tr>
                 <tr>
-                    <td>Sunday</td>
+                    <td><b>Sunday</b></td>
                     <td>{{dailyFood.sunday}}</td>
-                    <td><button type="button" class="btn btn-primary " ng-click="day(sunday)" data-toggle="modal" data-target="#editMealModel">
+                    <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModelSunday">
                 <i class="fa fa-edit"></i>
               </button></td>
                 </tr>
@@ -94,7 +98,7 @@
 <!-- /.container -->
 
 <div class="modal fade" id="addNewPackage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered-lg" role="document">
         <form #addNewPackage="ngForm" (ngSubmit)="addNewPackageNameFunc(addNewPackage)">
             <div class="modal-content">
                 <div class="modal-header">
@@ -112,6 +116,10 @@
                         <label for="exampleFormControlInput1">Package Name</label>
                         <input ngModel #packageName="ngModel" type="text" class="form-control" name="packageName" placeholder="Type the Package Name">
                     </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Package Price</label>
+                        <input ngModel #packagePrice="ngModel" type="text" class="form-control" name="packagePrice" placeholder="$">
+                    </div>
 
                 </div>
                 <div class="modal-footer">
@@ -122,20 +130,164 @@
         </form>
     </div>
 </div>
-
-<div class="modal fade" id="editMealModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <form #addPackageContent="ngForm" (ngSubmit)="addPackageContentFunc(addPackageContent)">
+<div class="modal fade" id="editMealModelMonday" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered-lg" role="document">
+        <form #addPackageContentMonday="ngForm" (ngSubmit)="addPackageContentMondayFunc(addPackageContentMonday)">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Edit Meal</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Monday Order</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <input ngModel #packageContent="ngModel" type="text" class="form-control" name="packageContent" placeholder="Type the content in this package">
+                        <textarea ngModel #packageContentMonday="ngModel" type="text" class="form-control" name="packageContentMonday" placeholder="What 's in the menu on Monday">
+                    </textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal fade" id="editMealModelTuesday" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered-lg" role="document">
+        <form #addPackageContentTuesday="ngForm" (ngSubmit)="addPackageContentTuesdayFunc(addPackageContentTuesday)">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Tuesday Order</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <textarea ngModel #packageContentTuesday="ngModel" type="text" class="form-control" name="addPackageContentTuesday" placeholder="What 's in the menu on Tuesday">
+                        </textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal fade" id="editMealModelWednesday" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered-lg" role="document">
+        <form #addPackageContentWednesday="ngForm" (ngSubmit)="addPackageContentWednesdayFunc(addPackageContentWednesday)">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Wednesday Order</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <textarea ngModel #packageContentWednesday="ngModel" type="text" class="form-control" name="packageContentWednesday" placeholder="What 's in the menu on Wednesday">
+                        </textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal fade" id="editMealModelThursday" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered-lg" role="document">
+        <form #addPackageContentThursday="ngForm" (ngSubmit)="addPackageContentThursdayFunc(addPackageContentThursday)">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Thursday Order</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <textarea ngModel #packageContentThursday="ngModel" type="text" class="form-control" name="packageContentThursday" placeholder="What 's in the menu on Thursday">
+                    </textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal fade" id="editMealModelFriday" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered-lg" role="document">
+        <form #addPackageContentFriday="ngForm" (ngSubmit)="addPackageContentFridayFunc(addPackageContentFriday)">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Friday Order</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <textarea ngModel #packageContentFriday="ngModel" type="text" class="form-control" name="packageContentFriday" placeholder="What 's in the menu on Friday">
+                    </textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal fade" id="editMealModelSaturday" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered-lg" role="document">
+        <form #addPackageContentSaturday="ngForm" (ngSubmit)="addPackageContentSaturdayFunc(addPackageContentSaturday)">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Saturday Order</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <textarea ngModel #packageContentSaturday="ngModel" type="text" class="form-control" name="packageContentSaturday" placeholder="What 's in the menu on Saturday">
+                        </textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal fade" id="editMealModelSunday" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered-lg" role="document">
+        <form #addPackageContentSunday="ngForm" (ngSubmit)="addPackageContentSundayFunc(addPackageContentSunday)">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Sunday Meal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <textarea ngModel #packageContentSunday="ngModel" type="text" class="form-control" name="packageContentSunday" placeholder="What 's in the menu on Sunday">
+                    </textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

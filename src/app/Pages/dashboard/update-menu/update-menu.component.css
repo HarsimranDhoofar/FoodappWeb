@@ -1,3 +1,11 @@
-.btnMealPackage{
+.btnMealPackage {
     margin-top: 15px;
+}
+
+dropdown-item :hover {
+    cursor: pointer;
+}
+
+dropdown-menu :hover {
+    cursor: pointer;
 }
