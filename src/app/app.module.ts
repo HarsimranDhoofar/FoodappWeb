@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ToastrModule } from 'ngx-toastr';
 import { StorageServiceModule} from 'angular-webstorage-service';
+import { UploadServiceService } from './Pages/database/uploadService/upload-service.service';
+import { AngularFireStorageModule } from "@angular/fire/storage";
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,9 +39,12 @@ import { StorageServiceModule} from 'angular-webstorage-service';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     ImageCropperModule,
-    StorageServiceModule
+    StorageServiceModule,
+    AngularFireStorageModule,
   ],
-  providers: [],
+  providers: [
+    UploadServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

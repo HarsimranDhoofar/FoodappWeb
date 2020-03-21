@@ -4,6 +4,9 @@ import { ProviderInfo } from '../../database/auth/provider-info.model';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
+import { UploadServiceService } from '../../database/uploadService/upload-service.service';
+import { AngularFireStorageReference, AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-edit-profile',
@@ -11,8 +14,13 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent implements OnInit {
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  uploadProgress: Observable<number>;
   prov: ProviderInfo[]
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService,
+    private uploadService: UploadServiceService,
+    private afStorage: AngularFireStorage) { }
 
   ngOnInit() {
     this.auth.getEmployees().subscribe(prov =>{
@@ -26,13 +34,17 @@ export class EditProfileComponent implements OnInit {
     this.auth.updateProvider(form.value);
   }
   imageChangedEvent: any = '';
+  uploadimage:any ='';
   croppedImage: any = '';
   
   fileChangeEvent(event: any): void {
+    this.uploadimage = event.target.files[0];
       this.imageChangedEvent = event;
+      
   }
   imageCropped(event: ImageCroppedEvent) {
       this.croppedImage = event.base64;
+      
   }
   imageLoaded() {
       // show cropper
@@ -44,4 +56,19 @@ export class EditProfileComponent implements OnInit {
       // show message
   }
  
+  UploadProfileImgFunc(){
+    const randomId = Math.random().toString(36).substring(2);
+    // create a reference to the storage bucket location
+    this.ref = this.afStorage.ref('/images/' + randomId);
+    // the put method creates an AngularFireUploadTask
+    // and kicks off the upload
+    
+    this.task =this.ref.put(this.uploadimage);
+    
+    // AngularFireUploadTask provides observable
+    // to get uploadProgress value
+    this.uploadProgress = this.task.snapshotChanges()
+    .pipe(map(s => (s.bytesTransferred / s.totalBytes) * 100));
+  }
+  
 }

@@ -29,7 +29,8 @@
 <image-cropper
     [imageChangedEvent]="imageChangedEvent"
     [maintainAspectRatio]="true"
-    [aspectRatio]="4 / 3"
+    [roundCropper]="true"
+    [aspectRatio]="1 / 1"
     [resizeToWidth]="128"
     format="png"
     (imageCropped)="imageCropped($event)"
@@ -38,11 +39,12 @@
     (loadImageFailed)="loadImageFailed()"
 ></image-cropper>
 
-<img [src]="croppedImage" />
                 </div>
                 <div class="modal-footer">
+                  <form #uploadProfileImg="ngForm" (ngSubmit)="UploadProfileImgFunc(uploadProfileImg)" >
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
                 </div>
               </div>
             </div>

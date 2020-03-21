@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { AuthService } from '../../database/auth/auth.service';
 import { MealData } from '../../database/auth/meal-data.model';
+import { UploadServiceService } from '../../database/uploadService/upload-service.service';
 @Component({
   selector: 'app-update-menu',
   templateUrl: './update-menu.component.html',
@@ -9,7 +10,8 @@ import { MealData } from '../../database/auth/meal-data.model';
 })
 export class UpdateMenuComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService,
+    private uploadService: UploadServiceService) { }
  prov1: Array<object> = [];
  key: any
  dailyFood: any
