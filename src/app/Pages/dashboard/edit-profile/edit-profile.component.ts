@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService } from '../../database/auth/auth.service';
 import { ProviderInfo } from '../../database/auth/provider-info.model';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
@@ -7,20 +7,22 @@ import { NgForm } from '@angular/forms';
 import { UploadServiceService } from '../../database/uploadService/upload-service.service';
 import { AngularFireStorageReference, AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
 import { map } from 'rxjs/operators';
-
+import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent implements OnInit {
+  public data:any=[]
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
   uploadProgress: Observable<number>;
   prov: ProviderInfo[]
   constructor(private auth: AuthService,
     private uploadService: UploadServiceService,
-    private afStorage: AngularFireStorage) { }
+    private afStorage: AngularFireStorage,
+    @Inject(LOCAL_STORAGE) private storage: WebStorageService) { }
 
   ngOnInit() {
     this.auth.getEmployees().subscribe(prov =>{
@@ -57,9 +59,9 @@ export class EditProfileComponent implements OnInit {
   }
  
   UploadProfileImgFunc(){
-    const randomId = Math.random().toString(36).substring(2);
+   // const randomId = Math.random().toString(36).substring(2);
     // create a reference to the storage bucket location
-    this.ref = this.afStorage.ref('/images/' + randomId);
+    this.ref = this.afStorage.ref(`Providers/${this.storage.get("userId")}`);
     // the put method creates an AngularFireUploadTask
     // and kicks off the upload
     
@@ -70,5 +72,9 @@ export class EditProfileComponent implements OnInit {
     this.uploadProgress = this.task.snapshotChanges()
     .pipe(map(s => (s.bytesTransferred / s.totalBytes) * 100));
   }
-  
+  getFromLocal(key): void {
+    console.log('recieved= key:' + key);
+    this.data= this.storage.get(key);
+    console.log(this.data);
+   }
 }
