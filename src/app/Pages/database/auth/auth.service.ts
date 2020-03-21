@@ -155,6 +155,11 @@ export class AuthService {
   getMealPackageList() {
     return  this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).valueChanges();
  }
+ ProfilePictureDataUpdate(){
+  this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).update({
+    avatarImage: `gs://foodapp-d7dcc.appspot.com/Providers/${this.storage.get("userId")}`
+  });
+ }
  getMeal(packageName){
    console.log(packageName);
    return  this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).doc(packageName).valueChanges();

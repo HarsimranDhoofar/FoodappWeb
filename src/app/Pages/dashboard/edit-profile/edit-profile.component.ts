@@ -71,6 +71,8 @@ export class EditProfileComponent implements OnInit {
     // to get uploadProgress value
     this.uploadProgress = this.task.snapshotChanges()
     .pipe(map(s => (s.bytesTransferred / s.totalBytes) * 100));
+
+    this.auth.ProfilePictureDataUpdate();
   }
   getFromLocal(key): void {
     console.log('recieved= key:' + key);
