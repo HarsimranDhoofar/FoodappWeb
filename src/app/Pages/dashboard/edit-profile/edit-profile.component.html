@@ -60,26 +60,26 @@
           <form #editProvider="ngForm" (ngSubmit)="editProviderFunc(editProvider)" >
             <div class = "row">
               <div class="col-md-12 mb-2">
-                <label for="serviceName">Service Name</label>
+                <label for="serviceName"><b>Service Name</b></label>
                 <input #serviceName="ngModel"  ngModel="{{prov.serviceName}}" name="serviceName" type="text" class="form-control" id="serviceName" value="{{prov.serviceName}}"  >
               </div>
             </div>
             <div class ="row">
               <div class = "col-md-12 mb-2">
-                <label for="address">Address</label>
+                <label for="address"><b>Address</b></label>
                 <input #address="ngModel"  ngModel="{{prov.address}}" name="address" type="test" class="form-control" value="{{prov.address}}">
               </div>
             </div>
              <div>
                <div class = "row">
                  <div class= "col-md-12 mb-2">
-                    <label for="phone">Phone</label>
+                    <label for="phone"><b>Phone</b></label>
                     <input  #phone="ngModel"  ngModel="{{prov.phone}}" name="phone" type="test" class="form-control" value="{{prov.phone}}" >   
                  </div>
                </div>
                <div class = "row">
                 <div class= "col-md-12 mb-2">
-                   <label for="email">E-mail</label>
+                   <label for="email"><b>E-mail</b></label>
                    <input  #email="ngModel"  ngModel="{{prov.email}}" name="email" type="email" class="form-control" id="email" value="{{prov.email}}">   
                 </div>
               </div>
