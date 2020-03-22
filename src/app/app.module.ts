@@ -19,6 +19,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { StorageServiceModule} from 'angular-webstorage-service';
 import { UploadServiceService } from './Pages/database/uploadService/upload-service.service';
 import { AngularFireStorageModule } from "@angular/fire/storage";
+import * as bootstrap from "bootstrap";
+import * as $ from "jquery";
 @NgModule({
   declarations: [
     AppComponent,

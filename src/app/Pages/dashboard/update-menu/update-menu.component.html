@@ -1,28 +1,25 @@
 <!-- Page Content -->
 <div class="container">
     <h1 class="my-4">
-        <small>Change Menu</small>
-
-        <div class="btn-group float-right justify-content-between btnMealPackage" role="group" aria-label="Button group with nested dropdown">
-            <div class="btn-group" role="group">
-                <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Select Package
-            </button>
-                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <a class="dropdown-item" (click)="onPackageSelect(emp)" *ngFor="let emp of prov1">{{emp.packageName}}</a>
-                </div>
-            </div>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#addNewPackage">
-            <i class="fa fa-plus"></i> Add Meal Package
-          </button>
-            </div>
-
-        </div>
-
+       Change Menu
     </h1>
     <hr>
+    <div class="btn-group justify-content-between btnMealPackage" role="group" aria-label="Button group with nested dropdown">
+        <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Select Package
+        </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item" (click)="onPackageSelect(emp)" *ngFor="let emp of prov1">{{emp.packageName}}</a>
+            </div>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#addNewPackage">
+        <i class="fa fa-plus"></i> Add Meal Package
+      </button>
+        </div>
 
+    </div>
     <div *ngIf="dailyFood">
         <h3 align="center"><small><img src="http://placehold.it/65 " class="center"/>&nbsp; {{dailyFood.packageName}}</small>
 

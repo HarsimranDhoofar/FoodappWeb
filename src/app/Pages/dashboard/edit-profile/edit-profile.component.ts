@@ -8,6 +8,9 @@ import { UploadServiceService } from '../../database/uploadService/upload-servic
 import { AngularFireStorageReference, AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
 import { map, finalize } from 'rxjs/operators';
 import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
+import { ViewChild, ElementRef} from '@angular/core';
+import * as bootstrap from "bootstrap";
+import * as $ from "jquery";
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -19,12 +22,16 @@ export class EditProfileComponent implements OnInit {
   task: AngularFireUploadTask;
   uploadProgress: Observable<number>;
   prov: ProviderInfo[]
+  @ViewChild('closeAddExpenseModal',{static: false}) closeAddExpenseModal: ElementRef;
+
   constructor(private auth: AuthService,
     private uploadService: UploadServiceService,
     private afStorage: AngularFireStorage,
-    @Inject(LOCAL_STORAGE) private storage: WebStorageService) { }
+    @Inject(LOCAL_STORAGE) private storage: WebStorageService,
+    ) { }
 
   ngOnInit() {
+  
     this.auth.getEmployees().subscribe(prov =>{
       console.log(prov)
       this.prov = prov ;
@@ -57,10 +64,18 @@ export class EditProfileComponent implements OnInit {
   loadImageFailed() {
       // show message
   }
- 
+
   UploadProfileImgFunc(){
+    $('#btnSave').submit(function(e) {
+      e.preventDefault();
+      // Coding
+      $('#modelChangePicture').modal('hide'); //or  $('#IDModal').modal('hide');
+      return false;
+  });
+    $(this.closeAddExpenseModal.nativeElement).modal('hide');
    // const randomId = Math.random().toString(36).substring(2);
-    // create a reference to the storage bucket location
+    // // create a reference to the storage bucket location
+    // this.closeAddExpenseModal.nativeElement.click();
     this.ref = this.afStorage.ref(`Providers/${this.storage.get("userId")}`);
     // the put method creates an AngularFireUploadTask
     // and kicks off the upload
@@ -81,6 +96,7 @@ export class EditProfileComponent implements OnInit {
       })
     ).subscribe();
 
+    
     
   }
   getFromLocal(key): void {

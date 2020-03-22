@@ -1,6 +1,16 @@
 .btnMealPackage {
-    margin-top: 15px;
+    display: block;
+    text-align: center;
+    align-content: center;
+    align-content: center;
+    padding-bottom: 10px;
 }
+.btnMealPackage :hover {
+    
+    cursor: pointer;
+}
+
+
 
 dropdown-item :hover {
     cursor: pointer;
