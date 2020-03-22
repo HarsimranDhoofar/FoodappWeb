@@ -66,13 +66,8 @@ export class EditProfileComponent implements OnInit {
   }
 
   UploadProfileImgFunc(){
-    $('#btnSave').submit(function(e) {
-      e.preventDefault();
-      // Coding
-      $('#modelChangePicture').modal('hide'); //or  $('#IDModal').modal('hide');
-      return false;
-  });
-    $(this.closeAddExpenseModal.nativeElement).modal('hide');
+ 
+   // $(this.closeAddExpenseModal.nativeElement).modal('hide');
    // const randomId = Math.random().toString(36).substring(2);
     // // create a reference to the storage bucket location
     // this.closeAddExpenseModal.nativeElement.click();
