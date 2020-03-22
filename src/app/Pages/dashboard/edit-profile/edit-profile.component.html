@@ -1,4 +1,5 @@
 <div class="container">
+  <div *ngIf= "prov">
   <br/>
     <h1>Change Your Information</h1>
   	<hr>
@@ -6,7 +7,7 @@
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
-          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+          <img src="{{prov.avatarImage}}" class="avatar img-circle" alt="avatar" width="100px" height="100px">
           <h6>Upload a different photo...</h6>
           
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelChangePicture">
@@ -54,7 +55,7 @@
       
       <!-- edit form column -->
       <div class="col-md-9 personal-info">
-        <div *ngIf= "prov">
+        
           <br/>
           <form #editProvider="ngForm" (ngSubmit)="editProviderFunc(editProvider)" >
             <div class = "row">
@@ -87,8 +88,9 @@
             <button class="btn btn-info" name ="registerBtn" type="submit">Update</button>
           </div>
         </form>
+      
       </div>
-      </div>
+  </div>
   </div>
 </div>
 <br/><br/>

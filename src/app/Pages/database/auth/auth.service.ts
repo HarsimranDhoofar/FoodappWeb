@@ -84,15 +84,10 @@ export class AuthService {
    }
    updateProvider(data){
       this.db.doc(`Providers/${this.storage.get("userId")}`).update({
-        uid: this.getFromLocal("userId"),
         serviceName:data.serviceName,
         address: data.address,
         phone: data.phone,
-        email: data.email,
-        cuisine:"",
-        deliveryRadius:"",
-        meals:"",
-        avatarImage:""
+        email: data.email
       });
       this.toastr.success('Updated','Profile')
    }
@@ -155,9 +150,9 @@ export class AuthService {
   getMealPackageList() {
     return  this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).valueChanges();
  }
- ProfilePictureDataUpdate(){
+ ProfilePictureDataUpdate(url){
   this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).update({
-    avatarImage: `gs://foodapp-d7dcc.appspot.com/Providers/${this.storage.get("userId")}`
+    avatarImage: url
   });
  }
  getMeal(packageName){

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../database/auth/auth.service';
+import { ProviderInfo } from '../database/auth/provider-info.model';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { AuthService } from '../database/auth/auth.service';
 export class DashboardComponent implements OnInit {
 
   user: firebase.User
+  prov: ProviderInfo[]
   constructor(private router: Router,
     private auth: AuthService) { }
 
@@ -20,6 +22,11 @@ export class DashboardComponent implements OnInit {
        console.log(user.email)
       this.user = user;
     });
+    this.auth.getEmployees().subscribe(prov =>{
+      console.log(prov)
+      this.prov = prov ;
+      console.log(this.prov)
+    })
   }
   logout(){
     this.auth.logout();

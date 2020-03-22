@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { UploadServiceService } from '../../database/uploadService/upload-service.service';
 import { AngularFireStorageReference, AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
-import { map } from 'rxjs/operators';
+import { map, finalize } from 'rxjs/operators';
 import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
 @Component({
   selector: 'app-edit-profile',
@@ -72,7 +72,16 @@ export class EditProfileComponent implements OnInit {
     this.uploadProgress = this.task.snapshotChanges()
     .pipe(map(s => (s.bytesTransferred / s.totalBytes) * 100));
 
-    this.auth.ProfilePictureDataUpdate();
+    this.task.snapshotChanges().pipe(
+      finalize(() => {
+        this.ref.getDownloadURL().subscribe(url => {
+          console.log(url);
+          this.auth.ProfilePictureDataUpdate(url); // <-- do what ever you want with the url..
+        });
+      })
+    ).subscribe();
+
+    
   }
   getFromLocal(key): void {
     console.log('recieved= key:' + key);
