@@ -1,5 +1,6 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+<ngx-spinner></ngx-spinner>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow justify-content-between sticky-top">
   <div class="container">
     <a class="navbar-brand" href="#"><img src="https://firebasestorage.googleapis.com/v0/b/foodapp-d7dcc.appspot.com/o/logo.png?alt=media&token=9cd09381-b6fd-4029-8704-a9a645c4a84b" height="28"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,9 +9,45 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="btn btn-dark" href="#" data-toggle="modal" data-target="#modalLRForm">Login/Register
-                <span class="sr-only">(current)</span>
-              </a>
+          <a class="btn btn-outline-dark" href="https://github.com/HarsimranDhoofar/Tiffin-Dashboard"> <i class="fa fa-github"></i>&nbsp;GitHub</a> 
+        </li>
+        <li class="nav-item active">
+        
+
+              <div class="btn-group">
+                <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-sign-in"></i>&nbsp;Login
+                </button>
+                <div class="dropdown-menu dropdown-menu-right shadow">
+                  <form class="px-4 py-3" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                    <div class ="row" *ngIf="authError">
+                      <div class="col-12 alert alert-danger">{{authError?.message}}</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1"><i class="fa fa-envelope-square"></i>&nbsp;<b>Email address</b></label>
+                      <input ngModel #emaillog="ngModel" type="email" name="email" class="form-control"  placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleDropdownFormPassword1"><i class="fa fa-key"></i>&nbsp;<b>Password</b></label>
+                      <input ngModel #passwordlog="ngModel" name="password" type="password" class="form-control"  placeholder="Password">
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                      <label class="form-check-label" for="dropdownCheck">
+                        Remember me
+                      </label>
+                    </div>
+                    <button type="submit" class="btn btn-outline-success btn-block">  &nbsp;Sign in
+                    </button>
+                   
+                  </form>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" data-toggle="modal" data-target=".bd-example-modal-lg">New around here? Sign up</a>
+                  <a class="dropdown-item" href="#">Forgot password?</a>
+                </div>
+              </div>
+              </li>
+              
       </ul>
     </div>
   </div>
@@ -35,159 +72,109 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.</p>
   </div>
 </section>
+<form #newProviderForm="ngForm" (ngSubmit)="newProvider(newProviderForm)" novalidate>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
-          <div class="modal-dialog cascading-modal" role="document">
-            <!--Content-->
-            <div class="modal-content">
-        
-              <!--Modal cascading tabs-->
-              <div class="modal-c-tabs">
-        
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab">Login</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#panel8" role="tab">Register</a>
-                  </li>
-                </ul>
-        
-                <!-- Tab panels -->
-                <div class="tab-content">
-                  <!--Panel 7-->
-                  <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
-        
-                    <!--Body-->
-                    <div class="modal-body">
-                        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-                          <div class ="row" *ngIf="authError">
-                            <div class="col-12 alert alert-danger">{{authError?.message}}</div>
-                          </div>
-                          <div class ="row">
-                            <div class = "col-md-12 mb-2">
-                              <label for="email">Email</label>
-                              <input ngModel #emaillog="ngModel" name="email" type="email" class="form-control" >
-                            </div>
-                          </div>
-                             <div class = "row">
-                               <div class= "col-md-12 mb-2">
-                                  <label for="password">Password</label>
-                                  <input ngModel #passwordlog="ngModel" name="password" type="password" class="form-control" >   
-                               </div>
-                           </div> 
-                        <div class="text-center form-sm mt-2">
-                          <button class="btn btn-info" type="submit" data-backdrop="false">LogIn</button>
-                        </div>
-                      </form>
-                      </div>
-                      
-                    <!--Footer-->
-                    <div class="modal-footer">
-                      <div class="options text-center text-md-right mt-1">
-                        <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
-                        <p>Forgot <a href="#" class="blue-text">Password?</a></p>
-                      </div>
-                      <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-                    </div>
-        
-                  </div>
-                  <!--/.Panel 7-->
-        
-                  <!--Panel 8-->
-                  <div class="tab-pane fade" id="panel8" role="tabpanel">
-        
-                    <!--Body-->
-                    <div class="modal-body">
-                      <div class = "col-12">
-                        <div class="row" *ngIf="authError">
-                        <div class= "col-12 alert alert-danger">
-                         {{ authError?.message }}
-                        </div>
-                      </div>
-                      <form #newProviderForm="ngForm" (ngSubmit)="newProvider(newProviderForm)">
-                        <div class = "row">
-                          <div class="col-md-12 mb-2">
-                            <label for="serviceName">Service Name</label>
-                            <input ngModel #serviceName="ngModel" name="serviceName" type="text" class="form-control" id="serviceName">
-                          </div>
-                        </div>
-                        <div class ="row">
-                          <div class = "col-md-12 mb-2">
-                            <label for="address">Address</label>
-                            <input ngModel #address="ngModel" name="address" type="text" class="form-control" id="address" >
-                          </div>
-                        </div>
-                         <div>
-                           <div class = "row">
-                             <div class= "col-md-12 mb-2">
-                                <label for="phone">Phone</label>
-                                <input ngModel #phone="ngModel" name="phone" type="text" class="form-control" id="phone">   
-                             </div>
-                           </div>
-                           <div class = "row">
-                            <div class= "col-md-12 mb-2">
-                               <label for="email">Email</label>
-                               <input ngModel #email="ngModel" name="email" type="text" class="form-control" id="email">   
-                            </div>
-                          </div>
-                          <div class = "row">
-                            <div class= "col-md-12 mb-2">
-                               <label for="password">Password</label>
-                               <input ngModel #password="ngModel" name="password" type="password" class="form-control" id="password">   
-                            </div>
-                          </div>
-                          <div class = "row">
-                            <div class= "col-md-12 mb-2">
-                               <label for="cpassword">Confirm Password</label>
-                               <input ngModel #cpassword="ngModel" name="cpassword" type="password" class="form-control" id="cpassword">   
-                            </div>
-                          </div>
-                         </div> 
-                      <div class="text-center form-sm mt-2">
-                        <button class="btn btn-info" name ="registerBtn" type="submit">Register</button>
-                      </div>
-                    </form>
-                    </div>
-                    </div>
-                    <!--Footer-->
-                    <div class="modal-footer">
-                      <div class="options text-right">
-                        <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
-                      </div>
-                      <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-                  <!--/.Panel 8-->
-                </div>
-        
-              </div>
-            </div>
-            <!--/.Content-->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-address-card"></i>&nbsp;New Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class = "col-12">
+          <div class="row" *ngIf="authError">
+          <div class= "col-12 alert alert-danger">
+           {{ authError?.message }}
           </div>
         </div>
-        <!--Modal: Login / Register Form-->
+        <div class="col-md-3 float-left">
+          <div class="text-center">
+            <img src="https://lh3.googleusercontent.com/proxy/u1xh6RG_18UMhoU-O-fBznX9FyLXL0tapX-us7-7ipYAj7Gdae1U-49-fvoMjtNjyqSeNbr0wc0AhBhSCZgVHWFjwX6ym6haVU848gp5Tbtq" class="avatar img-circle" alt="avatar" width="100px" height="100px">
+            <h6>Upload a different photo...</h6>
+            
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="customFile">
+              <label class="custom-file-label" for="customFile"></label>
+            </div>
+          </div>
+          </div>
+          <div class="col-md-9 float-right">
+            
+          <div class = "row">
+            <div class="col-md-12 mb-2">
+              <label for="serviceName"><b>Service Name</b></label>
+              <input ngModel #serviceName="ngModel" name="serviceName" type="text" class="form-control" id="serviceName" placeholder="Service Name" required>
+              <div class="valid-tooltip">
+                Looks good!
+              </div>
+              <div class="invalid-tooltip">
+                Please provide a valid state.
+              </div>
+            </div>
+          </div>
+          <div class ="row">
+            <div class = "col-md-12 mb-2">
+              <label for="address"><b>Address</b></label>
+              <input ngModel #address="ngModel" name="address" type="text" class="form-control" id="address" placeholder="123 Example St, State" required >
+            </div>
+          </div>
+           <div>
+             <div class = "row">
+               <div class= "col-md-12 mb-2">
+                  <label for="phone"><b>Phone</b></label>
+                  <input ngModel #phone="ngModel" name="phone" type="number" class="form-control" id="phone" placeholder="(xxx) xxx-xxxx" required>   
+               </div>
+             </div>
+             <div class = "row">
+              <div class= "col-md-12 mb-2">
+                 <label for="email"><b>Email</b></label>
+                 <input ngModel #email="ngModel" name="email" type="email" class="form-control" id="email" placeholder="email@example.com" required>   
+              </div>
+            </div>
+            <div class = "row">
+              <div class= "col-md-12 mb-2">
+                 <label for="password"><b>Password</b></label>
+                 <input ngModel #password="ngModel" name="password" type="password" class="form-control" id="password" placeholder="Minimum 6 characters" required>   
+              </div>
+            </div>
+            <div class = "row">
+              <div class= "col-md-12 mb-2">
+                 <label for="cpassword"><b>Confirm Password</b></label>
+                 <input ngModel #cpassword="ngModel" name="cpassword" type="password" class="form-control" id="cpassword" placeholder="Same as Password" required>   
+              </div>
+            </div>
+            </div>
+           </div> 
+      </div>
+      
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+      <button type="submit" class="btn btn-outline-success">Register</button>
+    </div>
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
   

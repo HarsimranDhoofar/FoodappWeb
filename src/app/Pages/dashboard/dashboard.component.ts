@@ -12,6 +12,7 @@ import { ProviderInfo } from '../database/auth/provider-info.model';
 export class DashboardComponent implements OnInit {
 
   user: firebase.User
+  
   prov: any = []
   avatarImage: any
   constructor(private router: Router,

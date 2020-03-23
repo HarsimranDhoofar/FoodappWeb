@@ -9,15 +9,25 @@ import { UploadServiceService } from '../../database/uploadService/upload-servic
   styleUrls: ['./update-menu.component.css']
 })
 export class UpdateMenuComponent implements OnInit {
-
+  public lottieConfig: Object;
+  private anim: any;
+  private animationSpeed: number = 1;
   constructor(private auth: AuthService,
-    private uploadService: UploadServiceService) { }
+    private uploadService: UploadServiceService,
+    ) { }
  prov1: Array<object> = [];
  key: any
  dailyFood: any
  currentPackageName:any
  days: String
+
   ngOnInit() {
+    this.lottieConfig = {
+      path: 'https://assets6.lottiefiles.com/packages/lf20_FRPrPy.json',
+      renderer: 'canvas',
+      autoplay: true,
+      loop: true
+  };
     this.auth.getMealPackageList().subscribe(prov =>{
       prov.forEach(entry => {
         console.log(entry)
@@ -93,4 +103,24 @@ export class UpdateMenuComponent implements OnInit {
   loadImageFailed() {
       // show message
   }
+  handleAnimation(anim: any) {
+    this.anim = anim;
+}
+
+stop() {
+    this.anim.stop();
+}
+
+play() {
+    this.anim.play();
+}
+
+pause() {
+    this.anim.pause();
+}
+
+setSpeed(speed: number) {
+    this.animationSpeed = speed;
+    this.anim.setSpeed(speed);
+}
 }
