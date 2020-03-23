@@ -1,18 +1,10 @@
 <!-- Page Content -->
-<div class="container">
-    <h1 class="my-4">
-        <!-- <lottie-animation-view
-                    [options]="lottieConfig"
-                    [width]="300"
-                    [height]="600"
-                    (animCreated)="handleAnimation($event)">
-              </lottie-animation-view> -->
-       Change Menu
-    </h1>
-    <hr>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <h1 class="h2"><i class="fa fa-table"></i>&nbsp;UPDATE/CHANGE MENU</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group justify-content-between btnMealPackage" role="group" aria-label="Button group with nested dropdown">
         <div class="btn-group" role="group">
-            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Select Package
         </button>
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -20,19 +12,23 @@
             </div>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#addNewPackage">
+            <button type="button" class="btn btn-outline-success " data-toggle="modal" data-target="#addNewPackage">
         <i class="fa fa-plus"></i> Add Meal Package
       </button>
         </div>
 
     </div>
+  </div>
+</div>
+<div class="container-fluid">
+   
     <div *ngIf="dailyFood">
         <h3 align="center"><small><img src="http://placehold.it/65 " class="center"/>&nbsp; {{dailyFood.packageName}}</small>
 
             <h5 align="float-right"><small>$ &nbsp;{{dailyFood.price}}</small></h5>
         </h3>
 
-        <table class="table responsive table-hover">
+        <table class="table responsive table-hover table-bordered table-striped">
             <thead>
                 <tr>
                     <th scope="col">Day</th>
@@ -42,57 +38,57 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><b>Monday</b></td>
+                    <td><i class="fa fa-calendar"></i>&nbsp;<b>Monday</b></td>
                     <td>{{dailyFood.monday}}</td>
-                    <td> <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModelMonday">
-                <i class="fa fa-edit"></i>
+                    <td> <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#editMealModelMonday">
+                <i class="fa fa-edit"></i>&nbsp;Edit
               </button></td>
                 </tr>
                 <tr>
-                    <td><b>Tuesday</b></td>
+                    <td><i class="fa fa-calendar"></i>&nbsp;<b>Tuesday</b></td>
                     <td>{{dailyFood.tuesday}}</td>
-                    <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModelTuesday">
-                <i class="fa fa-edit"></i>
+                    <td><button type="button" class="btn btn-outline-success " data-toggle="modal" data-target="#editMealModelTuesday">
+                <i class="fa fa-edit"></i>&nbsp;Edit
               </button></td>
                 </tr>
                 <tr>
-                    <td><b>Wednesday</b></td>
+                    <td><i class="fa fa-calendar"></i>&nbsp;<b>Wednesday</b></td>
                     <td>{{dailyFood.wednesday}}</td>
-                    <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModelWednesday">
-                <i class="fa fa-edit"></i>
+                    <td><button type="button" class="btn btn-outline-success " data-toggle="modal" data-target="#editMealModelWednesday">
+                <i class="fa fa-edit"></i>&nbsp;Edit
               </button></td>
                 </tr>
                 <tr>
-                    <td><b>Thursday</b></td>
+                    <td><i class="fa fa-calendar"></i>&nbsp;<b>Thursday</b></td>
                     <td>{{dailyFood.thursday}}</td>
-                    <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModelThursday">
-                <i class="fa fa-edit"></i>
+                    <td><button type="button" class="btn btn-outline-success " data-toggle="modal" data-target="#editMealModelThursday">
+                <i class="fa fa-edit"></i>&nbsp;Edit
               </button></td>
                 </tr>
                 <tr>
-                    <td><b>Friday</b></td>
+                    <td><i class="fa fa-calendar"></i>&nbsp;<b>Friday</b></td>
                     <td>{{dailyFood.friday}}</td>
-                    <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModelFriday">
-                <i class="fa fa-edit"></i>
+                    <td><button type="button" class="btn btn-outline-success " data-toggle="modal" data-target="#editMealModelFriday">
+                <i class="fa fa-edit"></i>&nbsp;Edit
               </button></td>
                 </tr>
                 <tr>
-                    <td><b>Saturday</b></td>
+                    <td><i class="fa fa-calendar"></i>&nbsp;<b>Saturday</b></td>
                     <td>{{dailyFood.saturday}}</td>
-                    <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModelSaturday">
-                <i class="fa fa-edit"></i>
+                    <td><button type="button" class="btn btn-outline-success " data-toggle="modal" data-target="#editMealModelSaturday">
+                <i class="fa fa-edit"></i>&nbsp;Edit
               </button></td>
                 </tr>
                 <tr>
-                    <td><b>Sunday</b></td>
+                    <td><i class="fa fa-calendar"></i>&nbsp;<b>Sunday</b></td>
                     <td>{{dailyFood.sunday}}</td>
-                    <td><button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editMealModelSunday">
-                <i class="fa fa-edit"></i>
+                    <td><button type="button" class="btn btn-outline-success " data-toggle="modal" data-target="#editMealModelSunday">
+                <i class="fa fa-edit"></i>&nbsp;Edit
               </button></td>
                 </tr>
             </tbody>
         </table>
-        <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#deletePackage">
+        <button type="button" class="btn btn-outline-danger btn-lg btn-block" data-toggle="modal" data-target="#deletePackage">
         <i class="fa fa-trash"></i> Delete Package
       </button>
     </div>
