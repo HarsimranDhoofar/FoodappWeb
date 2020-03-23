@@ -20,6 +20,7 @@ export class HomePageComponent implements OnInit {
   private animationSpeed: number = 1;
   @Output() closeModalEvent = new EventEmitter<boolean>();
   authError: any;
+  url: any;
   constructor(private router: Router,
               private auth: AuthService,
               private uploadService: UploadServiceService,
@@ -74,28 +75,9 @@ uploadimage:any ='';
 ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
   uploadProgress: Observable<number>;
+
 fileChangeEvent(event: any): void {
   this.uploadimage = event.target.files[0];   
-
-  this.ref = this.afStorage.ref(`Providers/${this.storage.get("userId")}`);
-  // the put method creates an AngularFireUploadTask
-  // and kicks off the upload
-  
-  this.task =this.ref.put(this.uploadimage);
-  
-  // AngularFireUploadTask provides observable
-  // to get uploadProgress value
-  this.uploadProgress = this.task.snapshotChanges()
-  .pipe(map(s => (s.bytesTransferred / s.totalBytes) * 100));
-
-  this.task.snapshotChanges().pipe(
-    finalize(() => {
-      this.ref.getDownloadURL().subscribe(url => {
-        console.log(url);
-        this.auth.ProfilePictureDataUpdate(url); // <-- do what ever you want with the url..
-      });
-    })
-  ).subscribe();
 }
 getFromLocal(key): void {
   console.log('recieved= key:' + key);

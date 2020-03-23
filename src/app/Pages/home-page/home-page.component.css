@@ -8,10 +8,17 @@
 
 }
 .dropdown-menu {
-  width: 300px !important;
+   width: 300px !important;
   
   cursor: pointer;
 }
 .navbar-nav > li{
   padding-left:30px;
 }
+@media only screen and (max-width: 600px) {
+  .navbar-nav .dropdown-menu {
+    position: absolute;
+    left:0;
+  }
+}
+
