@@ -1,7 +1,12 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../database/auth/auth.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import { AngularFireStorageReference, AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
+import { map, finalize } from 'rxjs/operators';
+import { UploadServiceService } from '../database/uploadService/upload-service.service';
+import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
 
 @Component({
   selector: 'app-home-page',
@@ -9,6 +14,7 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  public data:any=[]
   public lottieConfig: Object;
   private anim: any;
   private animationSpeed: number = 1;
@@ -16,7 +22,10 @@ export class HomePageComponent implements OnInit {
   authError: any;
   constructor(private router: Router,
               private auth: AuthService,
-              private spinner: NgxSpinnerService) {}
+              private uploadService: UploadServiceService,
+              private afStorage: AngularFireStorage,
+              private spinner: NgxSpinnerService,
+              @Inject(LOCAL_STORAGE) private storage: WebStorageService) {}
 
   goToDashboard(){
         this.router.navigate(['/dashboard']);  // define your component where you want to go
@@ -60,4 +69,37 @@ setSpeed(speed: number) {
   this.animationSpeed = speed;
   this.anim.setSpeed(speed);
 }
+
+uploadimage:any ='';
+ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  uploadProgress: Observable<number>;
+fileChangeEvent(event: any): void {
+  this.uploadimage = event.target.files[0];   
+
+  this.ref = this.afStorage.ref(`Providers/${this.storage.get("userId")}`);
+  // the put method creates an AngularFireUploadTask
+  // and kicks off the upload
+  
+  this.task =this.ref.put(this.uploadimage);
+  
+  // AngularFireUploadTask provides observable
+  // to get uploadProgress value
+  this.uploadProgress = this.task.snapshotChanges()
+  .pipe(map(s => (s.bytesTransferred / s.totalBytes) * 100));
+
+  this.task.snapshotChanges().pipe(
+    finalize(() => {
+      this.ref.getDownloadURL().subscribe(url => {
+        console.log(url);
+        this.auth.ProfilePictureDataUpdate(url); // <-- do what ever you want with the url..
+      });
+    })
+  ).subscribe();
+}
+getFromLocal(key): void {
+  console.log('recieved= key:' + key);
+  this.data= this.storage.get(key);
+  console.log(this.data);
+ }
 }
