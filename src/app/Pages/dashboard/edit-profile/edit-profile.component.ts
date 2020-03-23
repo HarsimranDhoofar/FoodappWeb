@@ -21,7 +21,7 @@ export class EditProfileComponent implements OnInit {
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
   uploadProgress: Observable<number>;
-  prov: ProviderInfo[]
+  prov: any = []
   @ViewChild('closeAddExpenseModal',{static: false}) closeAddExpenseModal: ElementRef;
 
   constructor(private auth: AuthService,

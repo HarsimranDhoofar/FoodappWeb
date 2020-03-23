@@ -12,11 +12,13 @@ import { ProviderInfo } from '../database/auth/provider-info.model';
 export class DashboardComponent implements OnInit {
 
   user: firebase.User
-  prov: ProviderInfo[]
+  prov: any = []
+  avatarImage: any
   constructor(private router: Router,
     private auth: AuthService) { }
 
   ngOnInit() {
+    this.avatarImage = this.prov;
     this.auth.getUserState()
      .subscribe( user =>{
        console.log(user.email)
