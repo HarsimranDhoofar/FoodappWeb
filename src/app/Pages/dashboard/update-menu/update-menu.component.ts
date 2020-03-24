@@ -166,6 +166,9 @@ makeid(length) {
   }
   this. randomid = result;
 }
-
+deleteCurrentPackagefunc(){
+  this.auth.deletePackage(this.dailyFood.packageName);
+  this.prov1 =[];
+}
 
 }

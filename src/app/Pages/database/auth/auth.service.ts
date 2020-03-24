@@ -178,6 +178,10 @@ export class AuthService {
    console.log(packageName);
    return  this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).doc(packageName).valueChanges();
  }
+ deletePackage(packageNamedelete:any){
+  this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).doc(`${packageNamedelete}`).delete();
+  this.toastr.success('Delete','Current Package Deleted.')
+ }
 saveInLocal(key, val): void {
     console.log('recieved= key:' + key + 'value:' + val);
     this.storage.set(key, val);
