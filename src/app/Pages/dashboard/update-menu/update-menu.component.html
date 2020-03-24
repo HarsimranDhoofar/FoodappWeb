@@ -28,9 +28,9 @@
         </button>
       </div>
     <div *ngIf="dailyFood">
-        <h3 align="center"><small><img src="http://placehold.it/65 " class="center"/>&nbsp; {{dailyFood.packageName}}</small>
+        <h3 align="center"><small><img src="{{dailyFood.packageImg}}" class="rounded-circle img-thumbnail" width="50" height="50"/>&nbsp; <b>{{dailyFood.packageName}}</b></small>
 
-            <h5 align="float-right"><small>$ &nbsp;{{dailyFood.price}}</small></h5>
+            <h5 align="float-right"><small><i class="fa fa-tags"></i><b>Price:</b>&nbsp;$ {{dailyFood.price}}</small></h5>
         </h3>
 
         <table class="table responsive table-hover table-bordered table-striped">

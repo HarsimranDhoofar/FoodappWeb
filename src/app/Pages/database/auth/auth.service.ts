@@ -104,10 +104,12 @@ export class AuthService {
       });
       this.toastr.success('Updated','Profile')
    }
-   addNewPackage(addNewPackage: any) {
+   addNewPackage(addNewPackage: any, packageImageUrl:any) {
+     try{
     this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).doc(`${addNewPackage.packageName}`).set({
       packageName:addNewPackage.packageName,
       price:addNewPackage.packagePrice,
+      packageImg: packageImageUrl,
       monday:"No Meal. Please Click on Edit Button to add what you want to give your customers on Monday -->",
       tuesday:"No Meal. Please Click on Edit Button to add what you want to give your customers on Tuesday -->",
       wednesday:"No Meal. Please Click on Edit Button to add what you want to give your customers on Wednesday -->",
@@ -116,7 +118,11 @@ export class AuthService {
       saturday:"No Meal. Please Click on Edit Button to add what you want to give your customers on Saturday -->",
       sunday:"No Meal. Please Click on Edit Button to add what you want to give your customers on Sunday -->"
     });
-
+    this.toastr.success('New Meal Package Created','You have created a new Meal Package you can go ahead and close the current pop up and select your package from Select Package button to Edit');
+  }
+  catch(Error){
+    this.toastr.error('Error','Please check that you filled valid information to create new package');
+  }
   }
   addPackageContentMondayAuth(addPackageContentMonday: any, currentPackageName){
     this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).doc(`${currentPackageName}`).update({
