@@ -21,6 +21,9 @@ import { UploadServiceService } from './Pages/database/uploadService/upload-serv
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import { LottieAnimationViewModule } from 'ng-lottie';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { AuthService } from './Pages/database/auth/auth.service';
+import { Observable } from 'rxjs';
+import { map, filter, finalize } from 'rxjs/operators';
 import * as bootstrap from "bootstrap";
 import * as $ from "jquery";
 @NgModule({
@@ -49,6 +52,7 @@ import * as $ from "jquery";
     NgxSpinnerModule
   ],
   providers: [
+    AuthService,
     UploadServiceService
   ],
   bootstrap: [AppComponent]
