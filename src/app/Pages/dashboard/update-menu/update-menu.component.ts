@@ -65,7 +65,8 @@ export class UpdateMenuComponent implements OnInit {
  
   addPackageContentMondayFunc(addPackageContentMonday){
     console.log(addPackageContentMonday.value)
-    this.auth.addPackageContentMondayAuth(addPackageContentMonday.value, this.currentPackageName)
+    this.auth.addPackageContentMondayAuth(addPackageContentMonday.value, this.currentPackageName);
+    this.prov1 =[];
   }
   addPackageContentTuesdayFunc(addPackageContentTuesday){
     console.log(addPackageContentTuesday.value)
@@ -77,19 +78,23 @@ export class UpdateMenuComponent implements OnInit {
   }
   addPackageContentThursdayFunc(addPackageContentThursday){
     console.log(addPackageContentThursday.value)
-    this.auth.addPackageContentThursdayAuth(addPackageContentThursday.value, this.currentPackageName)
+    this.auth.addPackageContentThursdayAuth(addPackageContentThursday.value, this.currentPackageName);
+    this.prov1 =[];
   }
   addPackageContentFridayFunc(addPackageContentFriday){
     console.log(addPackageContentFriday.value)
-    this.auth.addPackageContentFridayAuth(addPackageContentFriday.value, this.currentPackageName)
+    this.auth.addPackageContentFridayAuth(addPackageContentFriday.value, this.currentPackageName);
+    this.prov1 =[];
   }
   addPackageContentSaturdayFunc(addPackageContentSaturday){
     console.log(addPackageContentSaturday.value)
-    this.auth.addPackageContentSaturdayAuth(addPackageContentSaturday.value, this.currentPackageName)
+    this.auth.addPackageContentSaturdayAuth(addPackageContentSaturday.value, this.currentPackageName);
+    this.prov1 =[];
   }
   addPackageContentSundayFunc(addPackageContentSunday){
     console.log(addPackageContentSunday.value)
-    this.auth.addPackageContentSundayAuth(addPackageContentSunday.value, this.currentPackageName)
+    this.auth.addPackageContentSundayAuth(addPackageContentSunday.value, this.currentPackageName);
+    this.prov1 =[];
   }
   
   public data:any=[]
