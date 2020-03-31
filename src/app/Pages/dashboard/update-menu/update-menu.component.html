@@ -1,24 +1,24 @@
 <!-- Page Content -->
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-  <h1 class="h2"><i class="fa fa-table"></i>&nbsp;UPDATE/CHANGE MENU</h1>
-  <div class="btn-toolbar mb-2 mb-md-0">
-    <div class="btn-group justify-content-between btnMealPackage" role="group" aria-label="Button group with nested dropdown">
-        <div class="btn-group" role="group">
-            <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <h1 class="h2"><i class="fa fa-table"></i>&nbsp;UPDATE/CHANGE MENU</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group justify-content-between btnMealPackage" role="group" aria-label="Button group with nested dropdown">
+            <div class="btn-group" role="group">
+                <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Select Package
         </button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" (click)="onPackageSelect(emp)" *ngFor="let emp of prov1">{{emp.packageName}}</a>
+                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <a class="dropdown-item" (click)="onPackageSelect(emp)" *ngFor="let emp of prov1">{{emp.packageName}}</a>
+                </div>
             </div>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-outline-success " data-toggle="modal" data-target="#addNewPackage">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-success " data-toggle="modal" data-target="#addNewPackage">
         <i class="fa fa-plus"></i> Add Meal Package
       </button>
-        </div>
+            </div>
 
+        </div>
     </div>
-  </div>
 </div>
 <div class="container-fluid">
     <div class="alert alert-info alert-dismissible fade show" role="alert">
@@ -26,7 +26,7 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
+    </div>
     <div *ngIf="dailyFood">
         <h3 align="center"><small><img src="{{dailyFood.packageImg}}" class="rounded-circle img-thumbnail" width="50" height="50"/>&nbsp; <b>{{dailyFood.packageName}}</b></small>
 
@@ -114,13 +114,13 @@
                 <div class="modal-body">
                     <div class="alert alert-success" role="alert">
                         You can now create a new meal package. Go ahead and add new photo for the meal package, meal package name and <b>Monthly</b> price you want to sell it for.
-                      </div>
-                      <div class="form-group">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleFormControlInput1"><i class="fa fa-image"></i>&nbsp;<b>Select Photo for the Meal Package</b></label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile" (change)="fileChangeEvent($event)">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                      </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile" (change)="fileChangeEvent($event)">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
                     </div>
                     <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 3" [resizeToWidth]="128" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
 
@@ -325,8 +325,8 @@
             </div>
             <div class="modal-footer">
                 <form #deleteCurrentPackage="ngForm" (ngSubmit)="deleteCurrentPackagefunc()">
-                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close</button>
-                <button type="submit" class="btn btn-outline-danger"><i class="fa fa-check"></i>&nbsp;Confirm</button>
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Close</button>
+                    <button type="submit" class="btn btn-outline-danger"><i class="fa fa-check"></i>&nbsp;Confirm</button>
                 </form>
             </div>
         </div>

@@ -1,182 +1,179 @@
 <!-- Navigation -->
 <ngx-spinner></ngx-spinner>
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow justify-content-between sticky-top">
-  <div class="container">
-    <a class="navbar-brand" href="#"><img src="https://firebasestorage.googleapis.com/v0/b/foodapp-d7dcc.appspot.com/o/logo.png?alt=media&token=9cd09381-b6fd-4029-8704-a9a645c4a84b" height="28"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-between sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><img src="https://firebasestorage.googleapis.com/v0/b/foodapp-d7dcc.appspot.com/o/logo.png?alt=media&token=9cd09381-b6fd-4029-8704-a9a645c4a84b" height="28"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="btn btn-outline-dark" href="https://github.com/HarsimranDhoofar/Tiffin-Dashboard"> <i class="fa fa-github"></i>&nbsp;<b>GITHUB</b></a> 
-        </li>
-        <li class="nav-item active">
-        
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
 
-              <div class="btn-group">
-                <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item active">
+
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-sign-in"></i>&nbsp;<b>LOGIN</b>
                 </button>
-                <div class="dropdown-menu dropdown-menu-right shadow">
-                  <form class="px-4 py-3" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-                    <div class ="row" *ngIf="authError">
-                      <div class="col-12 alert alert-danger">{{authError?.message}}</div>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleDropdownFormEmail1"><i class="fa fa-envelope-square"></i>&nbsp;<b>Email address</b></label>
-                      <input ngModel #emaillog="ngModel" type="email" name="email" class="form-control"  placeholder="email@example.com">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleDropdownFormPassword1"><i class="fa fa-key"></i>&nbsp;<b>Password</b></label>
-                      <input ngModel #passwordlog="ngModel" name="password" type="password" class="form-control"  placeholder="Password">
-                    </div>
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                      <label class="form-check-label" for="dropdownCheck">
+                        <div class="dropdown-menu dropdown-menu-right shadow">
+                            <form class="px-4 py-3" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                                <div class="row" *ngIf="authError">
+                                    <div class="col-12 alert alert-danger">{{authError?.message}}</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleDropdownFormEmail1"><i class="fa fa-envelope-square"></i>&nbsp;<b>Email address</b></label>
+                                    <input ngModel #emaillog="ngModel" type="email" name="email" class="form-control" placeholder="email@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleDropdownFormPassword1"><i class="fa fa-key"></i>&nbsp;<b>Password</b></label>
+                                    <input ngModel #passwordlog="ngModel" name="password" type="password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                    <label class="form-check-label" for="dropdownCheck">
                         Remember me
                       </label>
-                    </div>
-                    <button type="submit" class="btn btn-outline-success btn-block">  &nbsp;<b>SIGN IN</b>
+                                </div>
+                                <button type="submit" class="btn btn-outline-success btn-block">  &nbsp;<b>SIGN IN</b>
                     </button>
-                   
-                  </form>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" data-toggle="modal" data-target=".bd-example-modal-lg">New around here? Sign up</a>
-                  <a class="dropdown-item" href="#">Forgot password?</a>
-                </div>
-              </div>
-              </li>
-              
-      </ul>
+
+                            </form>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" data-toggle="modal" data-target=".bd-example-modal-lg">New around here? Sign up</a>
+                            <a class="dropdown-item" href="#">Forgot password?</a>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
 
 <!-- Full Page Image Header with Vertically Centered Content -->
-<header class="masthead">
-  <div class="container h-100">
-    <div class="row h-100 align-items-center">
-      <div class="col-12 text-center">
-        <h1 class="font-weight-light">Microwave is all you need</h1>
-        <p class="lead">Tiffin is home-like food subscription service at affordable price</p>
-      </div>
+<!-- <header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+                <h1 class="font-weight-light">Microwave is all you need</h1>
+                <p class="lead">Tiffin is home-like food subscription service at affordable price</p>
+            </div>
+        </div>
     </div>
-  </div>
-</header>
+</header> -->
+<section id="hero">
 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+                <div>
+                    <h1>We design digital products that help grow businesses</h1>
+                    <h2>We are team of talanted designers making websites with Bootstrap</h2>
+                    <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+                <img src="https://bootstrapmade.com/demo/themes/Scaffold/assets/img/hero-img.png" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- End Hero -->
 <!-- Page Content -->
 <section class="py-5">
-  <div class="container">
-    <h2 class="font-weight-light">Page Content</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.</p>
-  </div>
+    <div class="container">
+        <h2 class="font-weight-light">Page Content</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.</p>
+    </div>
 </section>
 <form #newProviderForm="ngForm" (ngSubmit)="newProvider(newProviderForm)" novalidate>
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-address-card"></i>&nbsp;<b>NEW ACCOUNT</b></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-address-card"></i>&nbsp;<b>NEW ACCOUNT</b></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-      <div class="modal-body">
-        <div class = "col-12">
-          <div class="row" *ngIf="authError">
-          <div class= "col-12 alert alert-danger">
-           {{ authError?.message }}
-          </div>
+                </div>
+                <div class="modal-body">
+                    <div class="col-12">
+                        <div class="row" *ngIf="authError">
+                            <div class="col-12 alert alert-danger">
+                                {{ authError?.message }}
+                            </div>
+                        </div>
+                        <div class="col-md-3 float-left">
+                            <div class="text-center">
+                                <div *ngIf="url">
+                                    <img src="{{url}}" class="img-thumbnail" alt="avatar" width="100px" height="100px">
+                                </div>
+                                <h6>Upload a different photo...</h6>
+
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile" (change)="fileChangeEvent($event)">
+                                    <label class="custom-file-label" for="customFile"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9 float-right">
+
+                            <div class="row">
+                                <div class="col-md-12 mb-2">
+                                    <label for="serviceName"><i class="fa fa-user"></i>&nbsp;<b>Service Name</b></label>
+                                    <input ngModel #serviceName="ngModel" name="serviceName" type="text" class="form-control" id="serviceName" placeholder="Service Name" required>
+                                    <div class="valid-tooltip">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-tooltip">
+                                        Please provide a valid state.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-2">
+                                    <label for="address"><i class="fa fa-map-marker"></i>&nbsp;<b>Address</b></label>
+                                    <input ngModel #address="ngModel" name="address" type="text" class="form-control" id="address" placeholder="123 Example St, State" required>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-2">
+                                        <label for="phone"><i class="fa fa-phone"></i>&nbsp;<b>Phone</b></label>
+                                        <input ngModel #phone="ngModel" name="phone" type="text" class="form-control" id="phone" placeholder="(xxx) xxx-xxxx" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-2">
+                                        <label for="email"><i class="fa fa-envelope-square"></i>&nbsp;<b>Email</b></label>
+                                        <input ngModel #email="ngModel" name="email" type="email" class="form-control" id="email" placeholder="email@example.com" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-2">
+                                        <label for="password"><i class="fa fa-key"></i>&nbsp;<b>Password</b></label>
+                                        <input ngModel #password="ngModel" name="password" type="password" class="form-control" id="password" placeholder="Minimum 6 characters" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-2">
+                                        <label for="cpassword"><i class="fa fa-key"></i>&nbsp;<b>Confirm Password</b></label>
+                                        <input ngModel #cpassword="ngModel" name="cpassword" type="password" class="form-control" id="cpassword" placeholder="Same as Password" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fa fa-window-close"></i>&nbsp;<b>CLOSE</b></button>
+                    <button type="submit" class="btn btn-outline-success"><i class="fa fa-plus-square"></i>&nbsp;<b>REGISTER</b></button>
+                </div>
+
+            </div>
         </div>
-        <div class="col-md-3 float-left">
-          <div class="text-center">
-            <div *ngIf="url">
-            <img src="{{url}}" class="img-thumbnail" alt="avatar" width="100px" height="100px">
-          </div>
-            <h6>Upload a different photo...</h6>
-            
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="customFile" (change)="fileChangeEvent($event)">
-              <label class="custom-file-label" for="customFile"></label>
-            </div>
-          </div>
-          </div>
-          <div class="col-md-9 float-right">
-            
-          <div class = "row">
-            <div class="col-md-12 mb-2">
-              <label for="serviceName"><i class="fa fa-user"></i>&nbsp;<b>Service Name</b></label>
-              <input ngModel #serviceName="ngModel" name="serviceName" type="text" class="form-control" id="serviceName" placeholder="Service Name" required>
-              <div class="valid-tooltip">
-                Looks good!
-              </div>
-              <div class="invalid-tooltip">
-                Please provide a valid state.
-              </div>
-            </div>
-          </div>
-          <div class ="row">
-            <div class = "col-md-12 mb-2">
-              <label for="address"><i class="fa fa-map-marker"></i>&nbsp;<b>Address</b></label>
-              <input ngModel #address="ngModel" name="address" type="text" class="form-control" id="address" placeholder="123 Example St, State" required >
-            </div>
-          </div>
-           <div>
-             <div class = "row">
-               <div class= "col-md-12 mb-2">
-                  <label for="phone"><i class="fa fa-phone"></i>&nbsp;<b>Phone</b></label>
-                  <input ngModel #phone="ngModel" name="phone" type="text" class="form-control" id="phone" placeholder="(xxx) xxx-xxxx" required>   
-               </div>
-             </div>
-             <div class = "row">
-              <div class= "col-md-12 mb-2">
-                 <label for="email"><i class="fa fa-envelope-square"></i>&nbsp;<b>Email</b></label>
-                 <input ngModel #email="ngModel" name="email" type="email" class="form-control" id="email" placeholder="email@example.com" required>   
-              </div>
-            </div>
-            <div class = "row">
-              <div class= "col-md-12 mb-2">
-                 <label for="password"><i class="fa fa-key"></i>&nbsp;<b>Password</b></label>
-                 <input ngModel #password="ngModel" name="password" type="password" class="form-control" id="password" placeholder="Minimum 6 characters" required>   
-              </div>
-            </div>
-            <div class = "row">
-              <div class= "col-md-12 mb-2">
-                 <label for="cpassword"><i class="fa fa-key"></i>&nbsp;<b>Confirm Password</b></label>
-                 <input ngModel #cpassword="ngModel" name="cpassword" type="password" class="form-control" id="cpassword" placeholder="Same as Password" required>   
-              </div>
-            </div>
-            </div>
-           </div> 
-      </div>
-      
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fa fa-window-close"></i>&nbsp;<b>CLOSE</b></button>
-      <button type="submit" class="btn btn-outline-success"><i class="fa fa-plus-square"></i>&nbsp;<b>REGISTER</b></button>
-    </div>
-  
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-  

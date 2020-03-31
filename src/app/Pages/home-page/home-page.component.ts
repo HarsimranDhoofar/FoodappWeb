@@ -31,17 +31,17 @@ export class HomePageComponent implements OnInit {
   goToDashboard(){
         this.router.navigate(['/dashboard']);  // define your component where you want to go
     }
-  
+
   ngOnInit() {
     this.lottieConfig = {
-      path: 'https://assets1.lottiefiles.com/datafiles/cb81834f3b75c3d2aba9d8a58ad1f408/AE_JSON/loader1.json',
+      path: 'https://assets3.lottiefiles.com/packages/lf20_2rzKDg.json',
       renderer: 'canvas',
       autoplay: true,
       loop: true
     }
     this.auth.eventAuthError$.subscribe( data => {
       this.authError = data;
-      
+
     })
   }
   newProvider(frm){
@@ -77,7 +77,7 @@ ref: AngularFireStorageReference;
   uploadProgress: Observable<number>;
 
 fileChangeEvent(event: any): void {
-  this.uploadimage = event.target.files[0];   
+  this.uploadimage = event.target.files[0];
 }
 getFromLocal(key): void {
   console.log('recieved= key:' + key);

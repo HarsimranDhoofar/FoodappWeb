@@ -1,111 +1,101 @@
-<div *ngIf= "prov">
-<form #editProvider="ngForm" (ngSubmit)="editProviderFunc(editProvider)" >
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-  <h1 class="h2"><i class="fa fa-edit"></i>&nbsp;EDIT PROFILE</h1>
-  <div class="btn-toolbar mb-2 mb-md-0">
-    
-  </div>
-</div>
-<div class="container">
-<div class="row">
-  <div class="card col-md-3 text-center" >
-    <img class="card-img-top" src="{{prov.avatarImage}}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Change Profile Image</h5>
-      <p class="card-text">Upload a different photo...</p>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelChangePicture">
+<div *ngIf="prov">
+    <form #editProvider="ngForm" (ngSubmit)="editProviderFunc(editProvider)">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2"><i class="fa fa-edit"></i>&nbsp;EDIT PROFILE</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="card col-md-3 text-center">
+                    <img class="card-img-top" src="{{prov.avatarImage}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Change Profile Image</h5>
+                        <p class="card-text">Upload a different photo...</p>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelChangePicture">
         Change Profile Image
       </button>
-    </div>
-  </div>
-      <!-- left column -->
-     <!-- / <div class="col-md-3">
+                    </div>
+                </div>
+                <!-- left column -->
+                <!-- / <div class="col-md-3">
         <div class="text-center"> -->
-          <!-- <img src="{{prov.avatarImage}}" class="avatar img-circle" alt="avatar" width="100px" height="100px">
+                <!-- <img src="{{prov.avatarImage}}" class="avatar img-circle" alt="avatar" width="100px" height="100px">
           <h6>Upload a different photo...</h6>
-          
+
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelChangePicture">
             Change Profile Image
           </button> -->
-          
-          <!-- Modal -->
-          <div class="modal fade" id="modelChangePicture" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Change Profile Image</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                <!-- Modal -->
+                <div class="modal fade" id="modelChangePicture" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Change Profile Image</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
-                </div>
-                <div class="modal-body">
-                  <input type="file" (change)="fileChangeEvent($event)" />
+                            </div>
+                            <div class="modal-body">
+                                <input type="file" (change)="fileChangeEvent($event)" />
 
-<image-cropper
-    [imageChangedEvent]="imageChangedEvent"
-    [maintainAspectRatio]="true"
-    [roundCropper]="true"
-    [aspectRatio]="1 / 1"
-    [resizeToWidth]="128"
-    format="png"
-    (imageCropped)="imageCropped($event)"
-    (imageLoaded)="imageLoaded()"
-    (cropperReady)="cropperReady()"
-    (loadImageFailed)="loadImageFailed()"
-></image-cropper>
+                                <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [roundCropper]="true" [aspectRatio]="1 / 1" [resizeToWidth]="128" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+                                    (loadImageFailed)="loadImageFailed()"></image-cropper>
 
+                            </div>
+                            <div class="modal-footer">
+                                <form #uploadProfileImg="ngForm" (ngSubmit)="UploadProfileImgFunc()">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button id="btnSave" type="submit" class="btn btn-primary">Save changes</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                  <form #uploadProfileImg="ngForm" (ngSubmit)="UploadProfileImgFunc()" >
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button id="btnSave" type="submit" class="btn btn-primary" >Save changes</button>
-                </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        <!-- </div>
+                <!-- </div>
       </div> -->
-      
-      <!-- edit form column -->
-      <div class="card col-md-9 personal-info">
-        <div class="card-body">
-            <div class = "row">
-              <div class="col-md-12 mb-2">
-                <label for="serviceName"><i class="fa fa-user"></i>&nbsp;<b>Service Name</b></label>
-                <input #serviceName="ngModel"  ngModel="{{prov.serviceName}}" name="serviceName" type="text" class="form-control" id="serviceName" value="{{prov.serviceName}}"  >
-              </div>
-            </div>
-            <div class ="row">
-              <div class = "col-md-12 mb-2">
-                <label for="address"><i class="fa fa-map-marker"></i>&nbsp;<b>Address</b></label>
-                <input #address="ngModel"  ngModel="{{prov.address}}" name="address" type="test" class="form-control" value="{{prov.address}}">
-              </div>
-            </div>
-             <div>
-               <div class = "row">
-                 <div class= "col-md-12 mb-2">
-                    <label for="phone"><i class="fa fa-phone"></i>&nbsp;<b>Phone</b></label>
-                    <input  #phone="ngModel"  ngModel="{{prov.phone}}" name="phone" type="test" class="form-control" value="{{prov.phone}}" >   
-                 </div>
-               </div>
-               <div class = "row">
-                <div class= "col-md-12 mb-2">
-                   <label for="email"><i class="fa fa-envelope-square"></i>&nbsp;<b>E-mail</b></label>
-                   <input  #email="ngModel"  ngModel="{{prov.email}}" name="email" type="email" class="form-control" id="email" value="{{prov.email}}">   
-                </div>
-              </div>
-             </div> 
-          <div class="text-center form-sm mt-2">
-            <button type="submit" class="btn btn-outline-secondary">
+
+                <!-- edit form column -->
+                <div class="card col-md-9 personal-info">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 mb-2">
+                                <label for="serviceName"><i class="fa fa-user"></i>&nbsp;<b>Service Name</b></label>
+                                <input #serviceName="ngModel" ngModel="{{prov.serviceName}}" name="serviceName" type="text" class="form-control" id="serviceName" value="{{prov.serviceName}}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-2">
+                                <label for="address"><i class="fa fa-map-marker"></i>&nbsp;<b>Address</b></label>
+                                <input #address="ngModel" ngModel="{{prov.address}}" name="address" type="test" class="form-control" value="{{prov.address}}">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="row">
+                                <div class="col-md-12 mb-2">
+                                    <label for="phone"><i class="fa fa-phone"></i>&nbsp;<b>Phone</b></label>
+                                    <input #phone="ngModel" ngModel="{{prov.phone}}" name="phone" type="test" class="form-control" value="{{prov.phone}}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mb-2">
+                                    <label for="email"><i class="fa fa-envelope-square"></i>&nbsp;<b>E-mail</b></label>
+                                    <input #email="ngModel" ngModel="{{prov.email}}" name="email" type="email" class="form-control" id="email" value="{{prov.email}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center form-sm mt-2">
+                            <button type="submit" class="btn btn-outline-secondary">
               <i class="fa fa-save"></i>&nbsp;UPDATE
             </button>
-          </div>
-        
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
-      
-  </div>
+    </form>
 </div>
-</form>
-  </div>
