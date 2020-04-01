@@ -8,6 +8,7 @@ import { $ } from 'protractor';
 import { ProviderInfo } from './provider-info.model';
 import { MealData } from './meal-data.model';
 import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
+import { NgxSpinnerService } from 'ngx-spinner';
 //import { NgxSpinnerService } from "ngx-spinner";
 
 @Injectable({
@@ -26,7 +27,7 @@ export class AuthService {
     private router: Router,
     private toastr: ToastrService,
     @Inject(LOCAL_STORAGE) private storage: WebStorageService,
-   // private spinner: NgxSpinnerService
+   private spinner: NgxSpinnerService
     ) { }
 
     getUserState(){
@@ -34,10 +35,10 @@ export class AuthService {
     }
 
     login(email: string, password: string){
-  //    this.spinner.show();
+  this.spinner.show();
       this.afAuth.auth.signInWithEmailAndPassword(email, password)
        .catch(error =>{
-     //   this.spinner.hide();
+     this.spinner.hide();
         this.eventAuthError.next(error);
        })
        .then(userCredential =>{
@@ -45,14 +46,14 @@ export class AuthService {
           this.saveInLocal("userId", userCredential.user.uid)
            //uid = userCredential.user.uid
            console.log(this.afAuth.auth.currentUser);
-         //  this.spinner.hide();
+          this.spinner.hide();
            this.router.navigate(['/dashboard'])
-           
+
          }
        })
     }
     newProvider(provider){
-     // this.spinner.show();
+     this.spinner.show();
       this.afAuth.auth.createUserWithEmailAndPassword( provider.email, provider.password)
       .then( userCredential => {
          this.newProviderVar = provider
@@ -62,13 +63,13 @@ export class AuthService {
          });
 
          this.insertUserData(userCredential).then(() =>{
-      //    this.spinner.hide();
+       this.spinner.hide();
           this.toastr.success('New Registration Successful!','Go ahead and login with your new email and password');
           this.reload("/");
          });
       })
       .catch(error => {
-     //   this.spinner.hide();
+       this.spinner.hide();
         this.eventAuthError.next(error)
       })
     }

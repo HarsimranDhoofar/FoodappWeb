@@ -1,70 +1,68 @@
-<div *ngIf= "prov">
-    <nav class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/dashboard/overView">
-        <img src="https://firebasestorage.googleapis.com/v0/b/foodapp-d7dcc.appspot.com/o/logo.png?alt=media&token=9cd09381-b6fd-4029-8704-a9a645c4a84b" height="28" class="center">
-       </a>
-    
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <div class="btn-group">
-            
-          <button class="btn btn-sm btn-outline-secondary float-right dropdown-toggle" data-toggle="dropdown" >
+<div *ngIf="prov">
+    <nav class="navbar navbar-light sticky-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/dashboard/overView">
+            <img src="https://firebasestorage.googleapis.com/v0/b/foodapp-d7dcc.appspot.com/o/image.png?alt=media&token=ff352180-746c-496c-bc07-ec925f9678b1" height="28" class="center">
+        </a>
+
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <div class="btn-group">
+
+                    <button id="moveTocenter" class="btn btn-sm btn-outline-secondary float-right dropdown-toggle" data-toggle="dropdown">
             Logged in as: {{prov.serviceName}}
           </button>
-        
-          <div class="dropdown-menu dropdown-menu-right">
-            <div class=""></div>
-            <button class="dropdown-item" type="button" routerLink="/dashboard/overView"><i class="fa fa-home"></i>&nbsp;Overview</button>
-            <button class="dropdown-item" type="button" routerLink="/dashboard/updateMenu"><i class="fa fa-table"></i>&nbsp;Update/Change Menu</button>
-            <button class="dropdown-item" type="button" routerLink="/dashboard/customerList"><i class="fa fa-list"></i>&nbsp;Customer List</button>
-            <button class="dropdown-item" type="button" routerLink="/dashboard/editProfile"><i class="fa fa-edit"></i>&nbsp;Edit Profile</button>
-            <div class="dropdown-divider"></div>
-            <button class="dropdown-item" type="button" routerLink="/dashboard/editProfile"><i class="fa fa-sign-out"></i>&nbsp;Sign Out</button>
-          </div>
-        </div>
-        </li>
-      </ul>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class=""></div>
+                        <button class="dropdown-item" type="button" routerLink="/dashboard/overView"><i class="fa fa-home"></i>&nbsp;Overview</button>
+                        <button class="dropdown-item" type="button" routerLink="/dashboard/updateMenu"><i class="fa fa-table"></i>&nbsp;Update/Change Menu</button>
+                        <button class="dropdown-item" type="button" routerLink="/dashboard/customerList"><i class="fa fa-list"></i>&nbsp;Customer List</button>
+                        <button class="dropdown-item" type="button" routerLink="/dashboard/editProfile"><i class="fa fa-edit"></i>&nbsp;Edit Profile</button>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item" type="button" routerLink="/dashboard/editProfile"><i class="fa fa-sign-out"></i>&nbsp;Sign Out</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </nav>
     <div class="container-fluid">
-      <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-          <div class="sidebar-sticky">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/dashboard/overView">
-                  <span data-feather="home"></span>
-                  <i class="fa fa-home"></i>&nbsp;Overview<span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/dashboard/updateMenu">
-                  <span data-feather="file"></span>
-                  <i class="fa fa-table"></i>&nbsp;Update/Change Menu
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/dashboard/customerList">
-                  <span data-feather="shopping-cart"></span>
-                  <i class="fa fa-list"></i>&nbsp;Customer List
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/dashboard/editProfile">
-                  <span data-feather="users"></span>
-                  <i class="fa fa-edit"></i>&nbsp;Edit Profile
-                </a>
-              </li>
-              
-            </ul>
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/dashboard/overView">
+                                <span data-feather="home"></span>
+                                <i class="fa fa-home"></i>&nbsp;Overview<span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/dashboard/updateMenu">
+                                <span data-feather="file"></span>
+                                <i class="fa fa-table"></i>&nbsp;Update/Change Menu
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/dashboard/customerList">
+                                <span data-feather="shopping-cart"></span>
+                                <i class="fa fa-list"></i>&nbsp;Customer List
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/dashboard/editProfile">
+                                <span data-feather="users"></span>
+                                <i class="fa fa-edit"></i>&nbsp;Edit Profile
+                            </a>
+                        </li>
 
-           
-          </div>
-        </nav>
-</div>
+                    </ul>
+
+
+                </div>
+            </nav>
+        </div>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          
-      <div class="container-fluid">
-        <router-outlet></router-outlet>
-      </div>
-  
-  
+
+            <div class="container-fluid">
+                <router-outlet></router-outlet>
+            </div>
