@@ -171,6 +171,9 @@ export class AuthService {
   getMealPackageList() {
     return  this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`mealPackage`).valueChanges();
  }
+ getCustomerList() {
+  return  this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).collection(`currentsub`).valueChanges();
+}
  ProfilePictureDataUpdate(url){
   this.db.collection(`Providers`).doc(`${this.storage.get("userId")}`).update({
     avatarImage: url

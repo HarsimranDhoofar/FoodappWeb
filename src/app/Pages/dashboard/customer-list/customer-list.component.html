@@ -11,32 +11,25 @@
 
 <div class="container-fluid">
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" >
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">First</th>
                 <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Email</th>
+                <th scope="col">DeliveryAddress</th>
+                <th scope="col">Package Subscribed</th>
+                <th scope="col">Package Price</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
+            <tr *ngFor="let customer of customers">
+                <td>{{customer.firstName}}</td>
+                <td>{{customer.lastName}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.deliveryAddress}}</td>
+                <td>{{customer.packageSubscribedName}}</td>
+                <td>{{customer.packagePrice}}</td>
             </tr>
         </tbody>
     </table>
