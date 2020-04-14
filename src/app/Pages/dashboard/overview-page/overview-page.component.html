@@ -1,8 +1,8 @@
-<div *ngIf="prov">
+
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-
+        <div *ngIf="prov">
         <h1 class="h2"><i class="fa fa-home"></i>&nbsp;WELCOME&nbsp;{{prov.serviceName}} </h1>
-
+    </div>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group justify-content-between btnMealPackage" role="group" aria-label="Button group with nested dropdown">
 
@@ -22,8 +22,8 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><i class="fa fa-user">&nbsp;</i>Profile</h5>
-                        <table class="table table-bordered">
+                        <h5 class="card-title"><i class="fa fa-user" >&nbsp;</i>Profile</h5>
+                        <table class="table table-bordered" *ngIf="prov">
                             <thead>
                                 <tr>
                                     <th scope="col">Info</th>
@@ -57,38 +57,28 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><i class="fa fa-list"></i>&nbsp;Customer List</h5>
-                        <table class="table table-bordered">
+                        <h5 class="card-title"><i class="fa fa-list" ></i>&nbsp;Customer List</h5>
+                        <table class="table table-bordered" >
                             <thead>
                                 <tr>
-                                    <th scope="col">Info</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Package Subscribed</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><i class="fa fa-user"></i>&nbsp;<b>Service Name</b></td>
-                                    <td>{{prov.serviceName}}</td>
+                                <tr *ngFor="let customer of customers">
+                                    <td>{{customer.firstName}}</td>
+                                    <td>{{customer.lastName}}</td>
+                                    <td>{{customer.deliveryAddress}}</td>
                                 </tr>
-                                <tr>
-                                    <td><i class="fa fa-map-marker"></i>&nbsp;<b>Address</b></td>
-                                    <td>{{prov.address}}</td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa fa-phone"></i>&nbsp;<b>Phone</b></td>
-                                    <td>{{prov.phone}}</td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa fa-envelope-square"></i>&nbsp;<b>E-mail</b></td>
-                                    <td>{{prov.email}}</td>
-                                </tr>
-
                             </tbody>
                         </table>
-                        <a class="btn btn-outline-primary" routerLink="/dashboard/editProfile"><i class="fa fa-edit"></i>&nbsp;More Customers...</a>
+                        <a class="btn btn-outline-primary" routerLink="/dashboard/customerList"><i class="fa fa-edit"></i>&nbsp;More Customers...</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+

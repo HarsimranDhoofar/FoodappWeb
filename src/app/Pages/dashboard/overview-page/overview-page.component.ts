@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class OverviewPageComponent implements OnInit {
   user: firebase.User
-  
+  customers: any;
   prov: any = []
   constructor(private router: Router,
     private auth: AuthService) { }
@@ -23,7 +23,12 @@ export class OverviewPageComponent implements OnInit {
       console.log(prov)
       this.prov = prov ;
       console.log(this.prov)
-    })
+    });
+    this.auth.getCustomerList().subscribe(customers =>{
+     
+      this.customers = customers ; 
+      console.log(this.customers);//assign the data from subscription to your class variable
+      })
   }
 
 }

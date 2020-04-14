@@ -92,7 +92,9 @@ export class AuthService {
     }
 
     logout(){
+      this.router.navigate(['/']);
       return this.afAuth.auth.signOut();
+      
     }
     getEmployees() {
       return this.db.doc(`Providers/${this.storage.get("userId")}`).valueChanges() as Observable<ProviderInfo[]>;
@@ -197,4 +199,5 @@ getFromLocal(key): void {
        this.data= this.storage.get(key);
        console.log(this.data);
       }
+      
 }
