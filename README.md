@@ -1,27 +1,22 @@
-# FoodAppWeb
+# Tiffin Dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+You can checkout live demo [here](https://harsimrandhoofar.github.io/Tiffin-Dashboard/)
 
-## Development server
+## Features
+1. Firebase Authentication for user login and registration
+2. Ability to edit user data after they create account
+3. Ability to Create, Update, Delete meal packages and content within.
+4. Responsive design - can be opened on mobile display
+5. Ability to upload images to firebase storage.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## What did i learn?
 
-## Code scaffolding
+1. Through understanding of Angular
+2. Intergration on firebase with Angular App
+3. Angular routing to load in and out components as required
+4. Using third party libraries like image-cropper to upload image as base 64.
+5. Strong understanding of Bootstrap and how to write custom css alongside it.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## About Me
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+My name is Harsimran Singh. I am looking for postion as a front-end developer. Here is my (portfolio)(https://harsimrandhoofar.github.io/Portfolio/)
